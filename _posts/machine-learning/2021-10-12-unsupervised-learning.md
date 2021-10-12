@@ -28,7 +28,8 @@ $$
 &= \frac{1}{m-1} (WX)^{\top}WX \\
 &= \frac{1}{m-1} \Sigma^2
 \end{align*}
-$$
+$$      
+ 
 [1]
 
 “https://www.deeplearningbook.org/contents/ml.html.” https://www.deeplearningbook.org/contents/ml.html (accessed Oct. 11, 2021).

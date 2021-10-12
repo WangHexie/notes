@@ -19,7 +19,8 @@ $\operatorname{Var}[\boldsymbol{x}]=\frac{1}{m-1} \boldsymbol{X}^{\top} \boldsym
 
 ​    need to learn $W$, $Z = WX$  
 ​    Using svd to decompose $X = U \Sigma W^{\top}$,
-​    $X^{\top}X = W\Sigma^2W^{\top}$
+​    $X^{\top}X = W\Sigma^2W^{\top}$     
+ 
 $$
 \begin{align*}
 

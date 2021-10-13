@@ -46,18 +46,15 @@ $$
 
 0 &= H_{i, i}\left(\boldsymbol{w}_{i}-\boldsymbol{w}_{i}^{*}\right)+\alpha\operatorname{sign}\left(w_{i}\right)\\
 H_{i, i}w_i &= H_{i, i}w_{i}^{*}-\alpha\operatorname{sign}(w_i)\\
-\label{eqn:6}
 
-w_i &= w_{i}^{*}-\frac{\alpha\operatorname{sign}(w_i)}{H_{i, i}}
+w_i &= w_{i}^{*}-\frac{\alpha\operatorname{sign}(w_i)}{H_{i, i}} \label{a} 
 \end{align}
 $$
 
 
-公式$\ref{eqn:6}$ 推到公式$\ref{eqn:7}$就是分析了，$w_i > 0$时如何如何，$w_i^*<0$时如何如何。 
+公式$\ref{a}$ 推到公式$\ref{b}$就是分析了，$w_i > 0$时如何如何，$w_i^*<0$时如何如何。 
 $$
-\label{eqn:7}
-
-w_{i}=\operatorname{sign}\left(w_{i}^{*}\right) \max \left\{\left|w_{i}^{*}\right|-\frac{\alpha}{H_{i, i}}, 0\right\}
+w_{i}=\operatorname{sign}\left(w_{i}^{*}\right) \max \left\{\left|w_{i}^{*}\right|-\frac{\alpha}{H_{i, i}}, 0\right\}  \label{b}
 $$
 
 

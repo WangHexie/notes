@@ -8,7 +8,7 @@ title: Unsupervied Learning - Basic
 
 from [1] CHAPTER 7. REGULARIZATION FOR DEEP LEARNING
 
-在二次方程中，
+在二次方程中，        
 $$
 \begin{aligned}
 \tilde{\boldsymbol{w}} &=\left(\boldsymbol{Q} \boldsymbol{\Lambda} \boldsymbol{Q}^{\top}+\alpha \boldsymbol{I}\right)^{-1} \boldsymbol{Q} \mathbf{\Lambda} \boldsymbol{Q}^{\top} \boldsymbol{w}^{*} \\
@@ -43,14 +43,13 @@ let $\frac{d \hat{J}(\boldsymbol{w} ; \boldsymbol{X}, \boldsymbol{y})}{dw_i} = 0
 then 
 $$
 \begin{align}
-
 0 &= H_{i, i}\left(\boldsymbol{w}_{i}-\boldsymbol{w}_{i}^{*}\right)+\alpha\operatorname{sign}\left(w_{i}\right)\\
 H_{i, i}w_i &= H_{i, i}w_{i}^{*}-\alpha\operatorname{sign}(w_i)\\
 
 w_i &= w_{i}^{*}-\frac{\alpha\operatorname{sign}(w_i)}{H_{i, i}} \label{a} 
 \end{align}
 $$
-
+​      
 
 公式$\ref{a}$ 推到公式$\ref{b}$就是分析了，$w_i > 0$时如何如何，$w_i^*<0$时如何如何。 
 $$

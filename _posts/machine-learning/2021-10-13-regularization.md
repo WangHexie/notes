@@ -44,9 +44,8 @@ then
 $$
 \begin{align}
 0 &= H_{i, i}\left(\boldsymbol{w}_{i}-\boldsymbol{w}_{i}^{*}\right)+\alpha\operatorname{sign}\left(w_{i}\right)\\
-H_{i, i}w_i &= H_{i, i}w_{i}^{*}-\alpha\operatorname{sign}(w_i)\\
-
-w_i &= w_{i}^{*}-\frac{\alpha\operatorname{sign}(w_i)}{H_{i, i}} \label{a} 
+H_{i, i}w_i &= H_{i, i}w_{i}^{*}-\alpha\operatorname{sign}\left(w_i\right)\\
+w_i &= w_{i}^{*}-\frac{\alpha\operatorname{sign}\left(w_i\right)}{H_{i, i}} \label{a} 
 \end{align}
 $$
 ​      

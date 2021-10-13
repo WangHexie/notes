@@ -59,8 +59,63 @@ $$
 
 
 
-
 $H_{i,i}$小的时候，会直接忽略$w_i$直接把他往零推。
+
+
+
+
+
+##  injection noise at the hidden layer input(output) or the weights
+
+$$
+\begin{equation}
+\epsilon_{\boldsymbol{W}} \sim \mathcal{N}(\boldsymbol{\epsilon} ; \mathbf{0}, \eta \boldsymbol{I})
+\end{equation}
+$$
+
+这个如何等价于加上正则化项$\eta \mathbb{E}_{p(\boldsymbol{x}, y)}\left[\left\|\nabla_{\boldsymbol{W}} \hat{y}(\boldsymbol{x})\right\|^{2}\right]$???
+
+
+
+## Injection noise at the output targets
+
+​    这个就是label smoothing。
+
+
+
+## early stop 
+
+书上p248 推导
+$$
+\begin{align}
+\boldsymbol{w}^{(\tau)}-\boldsymbol{w}^{*} &=\left(\boldsymbol{I}-\epsilon \boldsymbol{Q} \boldsymbol{\Lambda} \boldsymbol{Q}^{\top}\right)\left(\boldsymbol{w}^{(\tau-1)}-\boldsymbol{w}^{*}\right) \label{11}\\
+\boldsymbol{Q}^{\top}\left(\boldsymbol{w}^{(\tau)}-\boldsymbol{w}^{*}\right) &=(\boldsymbol{I}-\epsilon \boldsymbol{\Lambda}) \boldsymbol{Q}^{\top}\left(\boldsymbol{w}^{(\tau-1)}-\boldsymbol{w}^{*}\right) \label{12}
+\end{align}
+$$
+
+
+>  中间推导过程
+
+其实就是公式$\ref{11}$带入到公式$\ref{12}$里面去，并且$w^{\left(0\right)}=0$。小技巧是$1+\tau -1 = \tau$所以最后推到$w$右上角系数为0时，昨天乘号系数就知道了。
+$$
+\begin{align}
+\boldsymbol{w}^{(\tau)}-\boldsymbol{w}^{*} &=\boldsymbol{Q}\left(\boldsymbol{I}-\epsilon \boldsymbol{\Lambda} \right)\boldsymbol{Q}^{\top}\left(\boldsymbol{w}^{(\tau-1)}-\boldsymbol{w}^{*}\right) \\
+&=\boldsymbol{Q}\left(\boldsymbol{I}-\epsilon \boldsymbol{\Lambda} \right)^{\tau}\boldsymbol{Q}^{\top}\left(\boldsymbol{w}^{(0)}-\boldsymbol{w}^{*}\right)
+\end{align}
+$$
+$w^{(\tau -1)}$代入到公式$\ref{12}$里面，即得下面的结果。
+
+> 中间推导过程
+
+
+$$
+\begin{equation}
+\boldsymbol{Q}^{\top} \boldsymbol{w}^{(\tau)}=\left[\boldsymbol{I}-(\boldsymbol{I}-\epsilon \boldsymbol{\Lambda})^{\tau}\right] \boldsymbol{Q}^{\top} \boldsymbol{w}^{*}
+\end{equation}
+$$
+
+
+
 
 [1]
 

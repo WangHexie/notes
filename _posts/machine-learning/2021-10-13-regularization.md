@@ -73,7 +73,7 @@ $$
 \end{equation}
 $$
 
-这个如何等价于加上正则化项$\eta \mathbb{E}_{p(\boldsymbol{x}, y)}\left[\left\|\nabla_{\boldsymbol{W}} \hat{y}(\boldsymbol{x})\right\|^{2}\right]$???
+这个如何等价于加上正则化项 $ \eta \mathbb{E}_{p(\boldsymbol{x},y)}\left[\left\|\nabla_{\boldsymbol{W}} \hat{y}(\boldsymbol{x})\right\|^{2}\right]$ ???
 
 
 

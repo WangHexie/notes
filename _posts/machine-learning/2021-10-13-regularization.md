@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unsupervied Learning - Basic
+title: Regularization
 ---
 
 

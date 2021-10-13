@@ -83,7 +83,9 @@ $$
 
 
 
-## early stop 
+## Early stop 
+
+​	挺好玩的是early stop 用二阶展开推导结果和l2正则化的二阶展开的推导形式是一致的。甚至参数都可以大致换算。
 
 书上p248 推导
 $$
@@ -115,7 +117,52 @@ $$
 $$
 
 
+下面两个公式$\ref{equ:ori}$和$\ref{equ:after}$的推导其实就是用公式$\ref{equ:exten}$乘法展开
+$$
+\begin{align}
+(\boldsymbol{\Lambda}+\alpha \boldsymbol{I})(\boldsymbol{\Lambda}+\alpha \boldsymbol{I})^{-1} = \boldsymbol{I} \label{equ:exten}
+\end{align}
+$$
 
+$$
+\begin{align}
+\boldsymbol{Q}^{\top} \tilde{\boldsymbol{w}} &=(\boldsymbol{\Lambda}+\alpha \boldsymbol{I})^{-1} \boldsymbol{\Lambda} \boldsymbol{Q}^{\top} \boldsymbol{w}^{*} \label{equ:ori}\\
+\boldsymbol{Q}^{\top} \tilde{\boldsymbol{w}} &=\left[\boldsymbol{I}-(\boldsymbol{\Lambda}+\alpha \boldsymbol{I})^{-1} \alpha\right] \boldsymbol{Q}^{\top} \boldsymbol{w}^{*} \label{equ:after}
+\end{align}
+$$
+
+最终学习率$\tau$，更新次数$\epsilon$，正则化参数$\alpha$可以用下面的公式推
+$$
+\begin{align}
+&\tau \approx \frac{1}{\epsilon \alpha} \label{19}\\ 
+&\alpha \approx \frac{1}{\tau \epsilon} \label{20}
+\end{align}
+$$
+
+
+公式$\ref{20}$和$\ref{19}$通过公式$\ref{ori}$推导，通过$\log(1+x)$的泰勒公式序列展开就行，展开一项就能得到下面的结果，当然得附带一些远小于1的条件。很容易，这里就不写了。
+$$
+\begin{equation}
+(\boldsymbol{I}-\epsilon \boldsymbol{\Lambda})^{\tau}=(\boldsymbol{\Lambda}+\alpha \boldsymbol{I})^{-1} \alpha \label{ori}
+\end{equation}
+$$
+
+
+## Sparse Representation
+
+   不仅是weight可以稀疏表示（l1正则），输出的representation也可以变稀疏。
+
+
+
+## Bagging and Other Ensemble Methods
+
+​    模型相关性得低，这才是关键。结果能推出来，误差与数量成反比。p253
+
+
+
+## Dropout
+
+  dropout 认为是直接关闭dropout就能享用平均模型的效果了。但是根据[这里](https://kexue.fm/archives/8496)的理解，应该dropout不能关，应该是多次预测取平均才行。如果得关闭dropout得使dropout的输出保持一致。
 
 [1]
 

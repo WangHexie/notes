@@ -53,7 +53,9 @@ $$
 
 公式$\ref{a}$ 推到公式$\ref{b}$就是分析了，$w_i > 0$时如何如何，$w_i^*<0$时如何如何。 
 $$
+\begin{equation}
 w_{i}=\operatorname{sign}\left(w_{i}^{*}\right) \max \left\{\left|w_{i}^{*}\right|-\frac{\alpha}{H_{i, i}}, 0\right\}  \label{b}
+\end{equation}
 $$
 
 

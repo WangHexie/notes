@@ -164,7 +164,7 @@ $$
 
 ## Dropout
 
-  dropout 认为是直接关闭dropout就能享用平均模型的效果了。但是根据[这里](https://kexue.fm/archives/8496)的理解，应该dropout不能关，应该是多次预测取平均才行。如果得关闭dropout得使dropout的输出保持一致。
+  dropout 实现里好像是直接关闭dropout就能享用平均模型的效果了。但是根据[这里](https://kexue.fm/archives/8496)的理解以及书上，应该dropout不能关，应该是多次预测取平均才行（即进行采样，求期望值）甚至要做成概率形式。如果直接关掉dropout，那么weight得乘以dropout的保留概率，使其数值大小大概一致。如果得关闭dropout得使dropout的输出保持一致。书上p261引用的论文，参数scaling甚至比上千个子网络采样平均还有用。
 
 [1]
 

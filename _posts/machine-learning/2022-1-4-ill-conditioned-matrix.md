@@ -36,7 +36,7 @@ diags([5,4,3,2,1], 0).toarray()
 
 
 
-A_2(A_5) is ill-conditioned matrix
+A_2(A_4?) is ill-conditioned matrix
 
 
 ```python

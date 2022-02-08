@@ -21,3 +21,14 @@ $$
 \end{equation}
 $$
 
+
+$$
+\begin{equation}
+\begin{split}
+PA + A^TP^T &= P(A + A^T)P^T \\
+PA + A^TP^T &= PAP^T + PA^TP^T \\
+PA(I-P^T) &= (P-I)A^TP^T
+\end{split}
+\end{equation}
+$$
+

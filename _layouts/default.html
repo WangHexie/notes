@@ -14,30 +14,12 @@
           href="{{ site.baseurl }}/feed.xml"/>
 	<script>
 	window.MathJax = {
-	  startup: {
-		typeset: false
-	  },
-	  svg: {
-		scale: 1,
-		minScale: 80
-	  },
 	  tex: {
 		displayMath: [['$$\n', '\n$$'], ['$$\r\n', '\r\n$$']],
 		inlineMath: [ ['$','$'], ['$$', '$$']],
 		processEscapes: true,
 		packages: ['base', 'noundefined', 'autoload', 'ams']
 	  },
-	  options: {
-		skipHtmlTags: ["script","noscript","style","textarea","pre","code", "span"],
-		processHtmlClass: "md-inline-math|inline-math-export-jax",
-		menuOptions: {
-		  settings: {
-			inTabOrder: false
-		  }
-		},
-		enableMenu: false,
-		ignoreHtmlClass: 'tex2jax_ignore'
-	  }
 	};
 	</script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

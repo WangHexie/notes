@@ -3,7 +3,7 @@ layout: post
 title: how to solve Ax=b in linear algebra
 ---
 
-How to solve $ Ax=b $? ( $A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in \mathbb{R}^{m*1}$ )
+How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in \mathbb{R}^{m*1}$$)
 1.  when $m=n$ and $\mathrm{Rank}(A) = m$:
    $$
    \begin{equation}

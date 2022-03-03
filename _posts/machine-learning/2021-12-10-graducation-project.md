@@ -32,3 +32,39 @@ PA(I-P^T) &= (P-I)A^TP^T
 \end{equation}
 $$
 
+$$
+\begin{equation}
+\begin{split}
+\frac{1}{m}\sum_i^m \lvert \sigma_i - \sigma_i' \rvert
+\end{split}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{aligned}
+
+X^{(l+1)} &= AX^{(l)}W^{(l)} \\
+X^{(l+1)} &= A^{l+1}X^{0}\prod_i^{l+1}W^{i} = A^{l+1}X^{0}W^{'} \\
+X^{(l+1)} &= Q\Lambda^{l+1} Q^{-1} X^{0}W^{'} \\
+
+\end{aligned}
+
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{aligned}
+
+X^0 &= X+X^{'} \\
+X^{(l+1)} &= A^{l+1}(X+X^{'})W^{'} \\
+X^{(l+1)} &= A^{l+1}XW^{'}+A^{l+1}X^{'}W^{'} \\
+
+
+
+\end{aligned}
+
+\end{equation}
+$$
+

@@ -10,52 +10,40 @@ title: Optimization Method
    \end{equation}
    $$
    
-   
 2. SGD + Momentum:
    $$
-   \begin{equation}
    \begin{aligned}
    v^t &= \gamma v^{t-1} - \alpha \nabla_{\theta} J(\theta) \\
    \theta^t &= \theta^{t-1} + v^t
    \end{aligned}
-   
-   \end{equation}
+   
    $$
-
+   
 3. Nesterov(More accurate gradient by moving parameter in advance)
    $$
-   \begin{equation}
    \begin{aligned}
    v^t &= \gamma v^{t-1} - \alpha \nabla_{\theta} J(\theta+\gamma v^{t-1}) \\
    \theta^t &= \theta^{t-1} + v^t
    \end{aligned}
-   
-   \end{equation}
+   
    $$
-
+   
 4. Adagrad($$G_t$$ is the sum of the **squares** of  the past gradients. So the frequent updated parameter will have less update.  So it's good for training sparse model)：
    $$
-   \begin{equation}
    \begin{aligned}
    \theta_{t+1}=\theta_{t}-\frac{\eta}{\sqrt{G_{t}+\epsilon}} \odot g_{t}
    \end{aligned}
-   
-   \end{equation}
    $$
    
-
 5. Adadelta(To avoid $$G_t$$ keeps going larger and larger and make model don't update any more, only keep a few gradients in a window by using momentum):
    $$
-   \begin{equation}
    \begin{aligned}
    E\left[g^{2}\right]_{t}&=\gamma E\left[g^{2}\right]_{t-1}+(1-\gamma) g_{t}^{2}
    
    \end{aligned}
-   
-   \end{equation}
    $$
    So we can replace $$G_t$$ with $$E\left[g^{2}\right]_{t}$$.
-
+   
    And author claims that the unit in the update is not match.**(???)**.So  he use $$\ref{theta}$$ to replace learning rate in the original formula. And you don't have to set the parameter.
    $$
    \begin{equation}
@@ -63,19 +51,16 @@ title: Optimization Method
    E\left[\Delta \theta^{2}\right]_{t}=\gamma E\left[\Delta \theta^{2}\right]_{t-1}+(1-\gamma) \Delta \theta_{t}^{2}
    \end{equation}
    $$
-
+   
    $$
-   \begin{equation}
    \begin{aligned}
    \Delta \theta_{t} &=-\frac{R M S[\Delta \theta]_{t-1}}{R M S[g]_{t}} g_{t} \\
    \theta_{t+1} &=\theta_{t}+\Delta \theta_{t}
    \end{aligned}
-   
-   \end{equation}
    $$
-
    
-
+   
+   
 6. RMSprop(It's almost as same as the Adadelta and they are for solving the same problem, but it didn't change the learning rate)
    $$
    \begin{aligned}
@@ -84,7 +69,6 @@ title: Optimization Method
    \end{aligned}
    $$
    
-
 7. Adam(I would call this momentum +  RMSprop for different learning rate for different parameter. And add a few term to avoid no update. And for easy to remember, $$m$$ for mean, $$v$$ for variance).$$\beta ^t $$means $$\beta$$ to the power t.
    $$
    \begin{aligned}

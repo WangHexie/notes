@@ -15,5 +15,7 @@ title: Difference between XGBoost and LightGBM
   3. Sparsity-aware Split Finding: 处理稀疏数据。数据缺失时，采用默认路径。
   4. 工程上的处理：预排序；缓存优化，预读取，小数据块以装进CPU缓存；
 
+百面机器学习中提到的改进：
 
+XGBoost：
 

@@ -21,14 +21,12 @@ $\operatorname{Var}[\boldsymbol{x}]=\frac{1}{m-1} \boldsymbol{X}^{\top} \boldsym
 ​    Using svd to decompose $X = U \Sigma W^{\top}$,
 ​    $X^{\top}X = W\Sigma^2W^{\top}$     
 
-$$
-\begin{align*}
+$$\begin{align*}
 
 \operatorname{Var}[Z] &= \frac{1}{m-1} Z^{\top}Z \\
 &= \frac{1}{m-1} (WX)^{\top}WX \\
 &= \frac{1}{m-1} \Sigma^2
-\end{align*}
-$$
+\end{align*}$$
 
 from:百面机器学习 -- PCA
 
@@ -39,17 +37,16 @@ from:百面机器学习 -- PCA
 from:百面机器学习 -- LDA
 
 是在有标签情况下降维，使类间距离最大。但是仅仅类间距离最大可能会使类有重叠，所以同时还得使类内间距减小。
-$$
-\begin{equation}
+
+$$\begin{equation}
 \max _{\omega} J(\boldsymbol{\omega})=\frac{\left\|\boldsymbol{\omega}^{\mathrm{T}}\left(\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}\right)\right\|_{2}^{2}}{D_{1}+D_{2}},
-\end{equation}
-$$
+\end{equation}$$
+
 化简和求偏导后得相当于求两个散度矩阵的特征向量和特征值，$\lambda$是原优化目标$J$，就是求最大特征值对应的特征向量。
-$$
-\begin{equation}
+
+$$\begin{equation}
 \boldsymbol{S}_{w}^{-1} \boldsymbol{S}_{B} \omega=\lambda \omega
-\end{equation}
-$$
+\end{equation}$$
 
 
 

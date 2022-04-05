@@ -5,13 +5,13 @@ title: how to solve Ax=b in linear algebra
 
 How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in \mathbb{R}^{m*1}$$)
 1.  when $m=n$ and $\mathrm{Rank}(A) = m$:
-   $$
-   \begin{equation}
+
+   $$   \begin{equation}
    x = A^{-1}b
-   \end{equation}
-   $$
+   \end{equation}$$
    
 2. when $m \gt n$ and $\mathrm{Rank}(A) = n$:
+   
    $$
    \begin{equation}
    x = (A^{\intercal}A)^{-1}A^{\intercal}b
@@ -21,6 +21,7 @@ How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in 
 3. when $m \gt n$ and $\mathrm{Rank}(A) \lt n$:
 
    1. pseudoinverse: The pseudoinverse $A^{+}$ gives the minimum $\ell^2$ norm solution with nullspace component = zero
+      
       $$
       \begin{equation}
       x = A^{+}b \\
@@ -30,7 +31,6 @@ How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in 
 
    2. $$
       \begin{equation}
-      
       x = x_{1}
       \end{equation}
       $$
@@ -48,6 +48,7 @@ How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in 
    1.  same as 5.1, when $\delta \to 0$ , the result approaches the pseudoinverse $A^{+}$. By adding $\delta^2I$, to make $A^{\intercal}A$ more positive.
 
    2. Gram-Schmidt to orthogonalizes the columns of A, and then $\hat{x}$ is easy to find.(The condition number of $ A^{T}A$ is its norm $\Vert A^{T}A\Vert$ times $\Vert (A^{T}A)^{-1}\Vert$. More stable and (less computation ?)
+      
       $$
       \begin{equation}
       A = QR

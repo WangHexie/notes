@@ -29,7 +29,8 @@ How to solve $ Ax=b $? ( $$A\in \mathbb{R}^{m*n}, x \in \mathbb{R}^{n*1}, b \in 
       \end{equation}
       $$
 
-   2. $$
+   2. 
+      $$
       \begin{equation}
       x = x_{1}
       \end{equation}

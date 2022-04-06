@@ -3,8 +3,9 @@ layout: post
 title: Regularization
 ---
 
+  
 
-##  L2      
+## L2      
 
 from [1] CHAPTER 7. REGULARIZATION FOR DEEP LEARNING
 

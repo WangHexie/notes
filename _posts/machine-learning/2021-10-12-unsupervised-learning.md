@@ -13,7 +13,9 @@ from [1] page 146(51)
 
 **How**:  
 
-$\operatorname{Var}[\boldsymbol{x}]=\frac{1}{m-1} \boldsymbol{X}^{\top} \boldsymbol{X}$       
+$$
+\operatorname{Var}[\boldsymbol{x}]=\frac{1}{m-1} \boldsymbol{X}^{\top} \boldsymbol{X}
+$$       
 
 需要使$\operatorname{Var}[Z]$co-variance非对角线元素为零，两两不相关。同时$\Sigma$应该从大到小排序，使保留下来的是方差大的。
 
@@ -22,12 +24,12 @@ $\operatorname{Var}[\boldsymbol{x}]=\frac{1}{m-1} \boldsymbol{X}^{\top} \boldsym
 ​    $X^{\top}X = W\Sigma^2W^{\top}$     
 
 $$
-\begin{align*}
+\begin{aligned}
 
 \operatorname{Var}[Z] &= \frac{1}{m-1} Z^{\top}Z \\
 &= \frac{1}{m-1} (WX)^{\top}WX \\
 &= \frac{1}{m-1} \Sigma^2
-\end{align*}
+\end{aligned}
 $$
 
 from:百面机器学习 -- PCA

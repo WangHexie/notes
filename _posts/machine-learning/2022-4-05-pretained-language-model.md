@@ -5,17 +5,24 @@ title: 预训练语言模型
 
 
 1. GPT(**2018.1**):生成式，自回归，最大化最大似然函数。关键在预训练
+
 1. GPT2(**2019**): 仅仅是更大。关键在多任务zero-shot
+
 1. GPT3(**2020.5**): 更大杯，few-shot learning变得很好。
+
 1. BERT(**2018.10**):
    * 预训练目标: Token mask + Next sentence prediction
+
 1. Transformer-XL(**2019.01**):为了学长距离依赖关系。采用了 relative sinusoidal positional embeddings.【UNFINISHED】
+
 1. XLNet(**2019.01**): 是在Transformer-XL上做的，也是自回归。作者认为引入MASK标签，会使训练和预测不一致。【UNFINISHED】
+
 1. RoBERTa(**2019.7**):It builds on BERT and modifies key hyperparameters, removing the next-sentence pretraining objective and training with much larger mini-batches and learning rates.
    * 同时处理了模型输入。NSP任务中会拼接不同文章的文本，并且如果只拼接短句子，会使得无法学会远距离依赖。
    * 直接去掉NSP效果不错。
    * 梯度累计来做大batch。
    * 换了BPE编码器，以byte做单位而不是unicode。
+
 1. ALBERT(**2019.9**): 降低参数数量，但是不减少计算量
    * 降低参数量的方法：
       1. Splitting the embedding matrix into two smaller matrices.    
@@ -28,16 +35,21 @@ title: 预训练语言模型
    * others:
       1. 使用了n-gram masking
       2. 使用了absolute position embedding
+
 1. T5(**2019.10**):探索迁移学习的极限。we explore the landscape of transfer
 learning techniques for NLP by introducing a unified framework that converts all text-based language problems into a text-to-text format
+
 1. ELECTRA(**2019.10**):用小的generator替换token后，用discriminator判断是否有被替换。作者声称这样做数据利用率更高，而不是仅仅几个mask掉的token会被用到。    
    generator梯度不来自discriminator而是最大似然函数。    
    对BERT唯一的修改是和ALBERT一样，embedding 分解
+
 1. BART(**2019.10**)：降噪自编码器
    * 预训练方式：
       ![BART]({{ site.baseurl }}/images/BART.png)    
       虽然有些地方会加mask，但是不一定有东西被mask掉。
+
 1. Reformer(**2020.1**):模型改进，局部敏感哈希替代attention
+
 1. Pegasus(题外话)：是挑和剩下文本覆盖度高的句子作为摘要。
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Hello World
+title: 博客以及其他闲聊
 ---
 
-Nothing here
-
+图片格式：
+```
 ![_config.yml]({{ site.baseurl }}/images/config.png)
-
+```

@@ -2,7 +2,6 @@
 layout: post
 title: Regularization
 ---
-
   
 
 ## L2      
@@ -27,7 +26,7 @@ $\alpha$ 是正则化系数，系数对$\Lambda$中系数越大的效果越小�
 
 
 
-## L1  
+## L1  {#l1}
 
 $$
 \hat{J}(\boldsymbol{w} ; \boldsymbol{X}, \boldsymbol{y})=J\left(\boldsymbol{w}^{*} ; \boldsymbol{X}, \boldsymbol{y}\right)+\sum_{i}\left[\frac{1}{2} H_{i, i}\left(\boldsymbol{w}_{i}-\boldsymbol{w}_{i}^{*}\right)^{2}+\alpha\left|w_{i}\right|\right]

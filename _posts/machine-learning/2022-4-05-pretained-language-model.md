@@ -62,9 +62,6 @@ learning techniques for NLP by introducing a unified framework that converts all
 1. Pegasus(题外话)：是挑和剩下文本覆盖度高的句子作为摘要。
 
 
-      
+   
 
-
-
-
-reference: [huggingface](https://huggingface.co/docs/transformers/model_doc/albert)
+reference: [huggingface](https://huggingface.co/docs/transformers/model_doc/albert)和各自的论文

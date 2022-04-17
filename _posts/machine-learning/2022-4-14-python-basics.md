@@ -39,6 +39,14 @@ title: Python基础
   * 可以通过 `iter()` 函数包装，将生成器变成迭代器，从而可以使用`next()`方法。
   * `for` 会自动将生成器包装成迭代器。[[^5]]
 
+## List 实现[[^9]]
+  * 连续数组
+  * 插入和删除都是O(n)的， append, pop(-1)为O(1)
+  * get slice[x:y] O(k)    
+    del slice O(n)    
+    set slice O(n+k)   
+
+
 [^1]: [https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md)
 
 [^2]: [https://realpython.com/python-metaclasses/#type-and-class](https://realpython.com/python-metaclasses/#type-and-class)
@@ -54,3 +62,5 @@ title: Python基础
 [^7]: [https://docs.python.org/3.0/glossary.html](https://docs.python.org/3.0/glossary.html)
 
 [^8]: [https://docs.python.org/3/library/functools.html](https://docs.python.org/3/library/functools.html)
+
+[^9]: [https://blog.csdn.net/Yuyh131/article/details/83592608](https://blog.csdn.net/Yuyh131/article/details/83592608)

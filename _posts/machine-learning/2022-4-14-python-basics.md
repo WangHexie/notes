@@ -46,6 +46,32 @@ title: Python基础
     del slice O(n)    
     set slice O(n+k)   
 
+## 继承
+  * mark [父类的值变化对子类值的影响](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md#%E9%A2%98%E7%9B%AE018%E8%AF%B4%E5%87%BA%E4%B8%8B%E9%9D%A2%E4%BB%A3%E7%A0%81%E7%9A%84%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C)
+  * python [菱形继承方法解析顺序](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md#%E9%A2%98%E7%9B%AE32%E9%98%85%E8%AF%BB%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%E8%AF%B4%E5%87%BA%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C)
+
+## 类方法
+  * ```python
+    @classmethod
+    def car_count(cls):     # 类方法，只访问类变量
+        print(f"我有{cls.car_num}辆车")
+    ```
+    [[^cm]]
+
+## 编程规范
+  * 不要用检查长度的方式来判断字符串、列表等是否为None或者没有元素，应该用if not x这样的写法来检查它。
+  * 如果有多个import语句，应该将其分为三部分，从上到下分别是Python标准模块、第三方模块和自定义模块，每个部分内部应该按照模块名称的字母表顺序来排列。
+
+## magic method 
+  * 通过定义类似  `__slot__ = ('__value', )`，不允许在类内创建新值 [[^slot]]
+
+## 基础函数
+  * `defaultdict`: 返回函数默认的值 [[^dd]]
+  * `deque`: list-like，在两端append和pop 是O(1)的 [[^dq]]
+  * `nametuple`: 返回的是一个类，可以继承，然后定义方法。 `Card = namedtuple('Card', ('suite', 'face'))`
+
+
+## 参考
 
 [^1]: [https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md)
 
@@ -64,3 +90,11 @@ title: Python基础
 [^8]: [https://docs.python.org/3/library/functools.html](https://docs.python.org/3/library/functools.html)
 
 [^9]: [https://blog.csdn.net/Yuyh131/article/details/83592608](https://blog.csdn.net/Yuyh131/article/details/83592608)
+
+[^slot]: [https://stackoverflow.com/questions/472000/usage-of-slots](https://stackoverflow.com/questions/472000/usage-of-slots)
+
+[^cm]: [http://web.suda.edu.cn/hejun/chapter11/python_11_3.html](http://web.suda.edu.cn/hejun/chapter11/python_11_3.html)
+
+[^dd]: [https://www.geeksforgeeks.org/defaultdict-in-python/](https://www.geeksforgeeks.org/defaultdict-in-python/)
+
+[^dq]: [https://docs.python.org/3/library/collections.html#collections.deque](https://docs.python.org/3/library/collections.html#collections.deque)

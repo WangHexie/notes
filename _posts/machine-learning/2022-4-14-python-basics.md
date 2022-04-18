@@ -39,12 +39,37 @@ title: Python基础
   * 可以通过 `iter()` 函数包装，将生成器变成迭代器，从而可以使用`next()`方法。
   * `for` 会自动将生成器包装成迭代器。[[^5]]
 
-## List 实现[[^9]]
+## List 实现和应用[[^9]]
   * 连续数组
   * 插入和删除都是O(n)的， append, pop(-1)为O(1)
   * get slice[x:y] O(k)    
     del slice O(n)    
     set slice O(n+k)   
+  * Slice with Negative Step Size: start 应该是从后面开始的，`print(L[6:1:-2])` [[^sl]]
+  * Insert Multiple List Items:Simply specify a zero-length slice[[^sl]]
+    ```python
+    # Insert at the start
+    L = ['a', 'b', 'c']
+    L[:0] = [1, 2, 3]
+    print(L)
+    # Prints [1, 2, 3, 'a', 'b', 'c']
+    # Insert at the end
+    L = ['a', 'b', 'c']
+    L[len(L):] = [1, 2, 3]
+    print(L)
+    # Prints ['a', 'b', 'c', 1, 2, 3]
+    # Insert in the middle
+    # You can insert items into the middle of list by keeping both the start and stop indices of the slice same.
+    L = ['a', 'b', 'c']
+    L[1:1] = [1, 2, 3]
+    print(L)
+    # Prints ['a', 1, 2, 3, 'b', 'c']
+    ```
+  * Delete Multiple List Items：`L[1:5] = []` or `del L[1:5]` [[^sl]]
+
+
+
+
 
 ## 继承
   * mark [父类的值变化对子类值的影响](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md#%E9%A2%98%E7%9B%AE018%E8%AF%B4%E5%87%BA%E4%B8%8B%E9%9D%A2%E4%BB%A3%E7%A0%81%E7%9A%84%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C)
@@ -98,3 +123,5 @@ title: Python基础
 [^dd]: [https://www.geeksforgeeks.org/defaultdict-in-python/](https://www.geeksforgeeks.org/defaultdict-in-python/)
 
 [^dq]: [https://docs.python.org/3/library/collections.html#collections.deque](https://docs.python.org/3/library/collections.html#collections.deque)
+
+[^sl]: [https://www.learnbyexample.org/python-list-slicing/](https://www.learnbyexample.org/python-list-slicing/)

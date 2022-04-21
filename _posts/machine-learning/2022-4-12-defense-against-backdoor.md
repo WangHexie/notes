@@ -16,4 +16,8 @@ A Data Provenance Based Approach（2017）*：该论文增加了假设：数据�
   * 最后一层隐藏层输出结果进行聚类，选择结果中数量较少的类作为被污染的样本，或者算Silhouette Score.
   * 从结果看效果不错的。
 
-* 
+* *Adversarial Attacks and Defenses on Graphs: A Review, A Tool and Empirical Studies(2020)*
+  * Adversarial Training
+  * Adversarial Perturbation Detection
+  * Graph Purification
+  * Attention Mechanism

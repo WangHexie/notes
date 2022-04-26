@@ -73,6 +73,7 @@ title: 算法面经整理
 ## NLP
 
 ## 机器学习
+- [ ] 手推bp公式
 
 ## C++
 - [ ] [高频面试题](https://blog.csdn.net/xie810005152/article/details/91038878)

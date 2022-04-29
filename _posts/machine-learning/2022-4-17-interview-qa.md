@@ -64,6 +64,14 @@ title: 算法面经整理
     * 
 
   - [ ] adboost原理
+  - [ ] focal loss:
+  
+	$$
+      \begin{equation}
+      \operatorname{FL}\left(p_{\mathrm{t}}\right)=-\alpha_{\mathrm{t}}\left(1-p_{\mathrm{t}}\right)^{\gamma} \log \left(p_{\mathrm{t}}\right)
+      \end{equation}
+      $$
+  			
 - [ ] [详细面经](https://posts.careerengine.us/p/5df19284178ec71122269bb1)
   - [ ] catboost
   - [ ] 

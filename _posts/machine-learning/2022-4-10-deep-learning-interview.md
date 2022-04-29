@@ -30,6 +30,17 @@ title: 深度学习面试
 
 ## RNN 中长期依赖问题
    * 和GNN一样，$$W^n X$$, 导致特征值大于一的爆炸，小于一的消失 
+
+## RNN formula
+
+$$
+\begin{align}
+  h_n &= \sigma(W[x_n,h_{n-1}] +b)\\
+  O_n &= \sigma(Vh_{n}+b)
+
+\end{align}
+  
+$$
    
 ## [LSTM](https://towardsdatascience.com/tutorial-on-lstm-a-computational-perspective-f3417442c2cd) 
 
@@ -83,6 +94,12 @@ $$
 \end{equation}
 $$
 
+## FM 做召回时 [[^1]]
+* 直接将user对应的特征的embedding相加，item对应的embedding相加，分别作为对应的向量。
+* 两者相乘后就是对应的交互向量
+* 而自身的交互向量，（不太重要？），所以可以舍去？
+
 ## 参考文献
 百面深度学习
 
+[^1]: [https://jishuin.proginn.com/p/763bfbd6c95c](https://jishuin.proginn.com/p/763bfbd6c95c)

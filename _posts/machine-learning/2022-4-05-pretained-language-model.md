@@ -3,7 +3,7 @@ layout: post
 title: 预训练语言模型
 ---
 
-1. ELMO(**2018.2**):
+1. ELMO(**2018.2**): word representation
 
 1. GPT(**2018.1**):生成式，自回归，最大化最大似然函数。关键在预训练
 

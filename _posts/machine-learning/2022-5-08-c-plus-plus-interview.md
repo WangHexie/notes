@@ -139,7 +139,7 @@ title: C++面经
 			* const 函数只能调用 const函数，即使某个函数本质上没有修改任何数据，但没有声明为const，也是不能被const函数调用的。(同一个类中的函数以及其他的函数都不能)	
 
 ### C++的顶层const和底层const [[^3]]
-* 顶层const：一般指修饰后无法更改具体值的const：const int a; const int \&a; P *const a; 
+* 顶层const：一般指修饰后无法更改具体值的const：`const int a; const int &a; P *const a; `
 * 底层const：指修饰指针的const，指针不能改，但是指针指向的对象的值能改。
 * 顶层 const 不影响传入函数的对象，一个拥有顶层 const 的形参无法和另一个没有顶层 const 的形参区分开：
 	```c++
@@ -161,14 +161,88 @@ title: C++面经
 * 但是底层非const可以默认转化为底层const，非常成员所以可以调用常成员函数。
 
 
-### final和override关键字
-拷贝初始化和直接初始化，初始化和赋值的区别
-extern "C"的用法
+### final和override关键字 [[^4]]
+* override：保证在派生类中声明的重载函数，与基类的虚函数有相同的签名；
+* final：阻止类的进一步派生 和 虚函数的进一步重写。
+  
+
+### 拷贝初始化和直接初始化，初始化和赋值的区别 [[^5]]
+* 如果使用等号（=）初始化一个变量，实际上执行的是“拷贝初始化”，编译器把等号右侧的初始值拷贝到新创建的对象中去。
+* 与之相反，如果不使用等号，则执行的是“直接初始化”
+* 拷贝初始化实际上是要求编译器将右侧运算对象拷贝到正在创建的对象中，通常用拷贝构造函数来完成
+  * 拷贝构造函数是一种特殊的构造函数，它在创建对象时，是使用同一类中之前创建的对象来初始化新创建的对象。[[^6]]
+  * 通过使用另一个同类型的对象来初始化新创建的对象。
+    ```c++
+    classname (const classname &obj) {
+      // 构造函数的主体
+    }
+    ```
+* 拷贝初始化不仅在用=定义变量时发生，下列情况也发生
+  1. 将一个对象作为实参传递给非引用类型的形参时
+  1. 从一个返回类型为非引用类型的函数返回一个对象
+  1. 当初始化标准库容器或是调用其insert或push成员时（与之相对，用emplace成员创建的元素都进行直接初始化）
+* **拷贝构造函数的形参必须是引用类型的原因**：如果不是引用类型，为了调用拷贝构造函数，我们必须拷贝它的实参，但为了拷贝实参，我们又需要调用拷贝构造函数，如此无限循环，造成错误。 
+* 当拷贝构造函数前面加了一个explicit关键字时，调用拷贝构造函数不能进行隐式类型转换，但可以进行显示类型转换()
+
+### extern "C"的用法
+
+* **extern linkage for non-const globals** [[^7]]:When the linker sees extern before a global variable declaration, it looks for the definition in another translation unit. Declarations of non-const variables at global scope are external by default. Only apply extern to the declarations that don't provide the definition.
+  ```c++ 
+  //fileA.cpp
+  int i = 42; // declaration and definition
+
+  //fileB.cpp
+  extern int i;  // declaration only. same as i in FileA
+
+  //fileC.cpp
+  extern int i;  // declaration only. same as i in FileA
+
+  //fileD.cpp
+  int i = 43; // LNK2005! 'i' already has a definition.
+  extern int i = 43; // same error (extern is ignored on definitions)
+  ```
+* All of the standard include files use the extern "C" syntax to allow the run-time library functions to be used in C++ programs.主要是c++编译方式和c不一样，按c++方式编译的话，找不到用c编译的库函数等东西。
+  ```c++
+  // Declare printf with C linkage.
+  extern "C" int printf(const char *fmt, ...);
+
+  //  Cause everything in the specified
+  //  header files to have C linkage.
+  extern "C" {
+      // add your #include statements here
+  #include <stdio.h>
+  }
+
+  //  Declare the two functions ShowChar
+  //  and GetChar with C linkage.
+  extern "C" {
+      char ShowChar(char ch);
+      char GetChar(void);
+  }
+
+  //  Define the two functions
+  //  ShowChar and GetChar with C linkage.
+  extern "C" char ShowChar(char ch) {
+      putchar(ch);
+      return ch;
+  }
+
+  extern "C" char GetChar(void) {
+      char ch;
+      ch = getchar();
+      return ch;
+  }
+
+  // Declare a global variable, errno, with C linkage.
+  extern "C" int errno;
+  ```
+
+
 模板函数和模板类的特例化
 C++的STL源码（这个系列也很重要，建议侯捷老师的STL源码剖析书籍与视频），其中包括内存池机制，各种容器的底层实现机制，算法的实现原理等）
 STL源码中的hashtable的实现
 
-
+隐式类型转换
 ## 参考文献
 
 [^1]: [https://chowdera.com/2021/05/20210527194638639f.html](https://chowdera.com/2021/05/20210527194638639f.html)
@@ -176,3 +250,11 @@ STL源码中的hashtable的实现
 [^2]: [https://blog.csdn.net/zheng19880607/article/details/23883437](https://blog.csdn.net/zheng19880607/article/details/23883437)
 
 [^3]: [https://zhuanlan.zhihu.com/p/161560391](https://zhuanlan.zhihu.com/p/161560391)
+
+[^4]: [https://zhuanlan.zhihu.com/p/260992059#:~:text=%E9%92%88%E5%AF%B9%E4%B8%8A%E8%BF%B0%E6%83%85%E5%86%B5%EF%BC%8CC%2B%2B%2011,%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E9%87%8D%E5%86%99%E3%80%82](https://zhuanlan.zhihu.com/p/260992059#:~:text=%E9%92%88%E5%AF%B9%E4%B8%8A%E8%BF%B0%E6%83%85%E5%86%B5%EF%BC%8CC%2B%2B%2011,%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E9%87%8D%E5%86%99%E3%80%82)
+
+[^5]: [https://blog.csdn.net/capecape/article/details/78276677](https://blog.csdn.net/capecape/article/details/78276677)
+
+[^6]: [https://www.runoob.com/cplusplus/cpp-copy-constructor.html](https://www.runoob.com/cplusplus/cpp-copy-constructor.html)
+
+[^7]: [https://docs.microsoft.com/en-us/cpp/cpp/extern-cpp?view=msvc-170](https://docs.microsoft.com/en-us/cpp/cpp/extern-cpp?view=msvc-170)

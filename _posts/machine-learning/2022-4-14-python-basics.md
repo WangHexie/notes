@@ -95,6 +95,21 @@ title: Python基础
   * `deque`: list-like，在两端append和pop 是O(1)的 [[^dq]]
   * `nametuple`: 返回的是一个类，可以继承，然后定义方法。 `Card = namedtuple('Card', ('suite', 'face'))`
 
+## Exception [[^ex]]
+```python
+try:
+       # Some Code.... 
+
+except:
+       # optional block
+       # Handling of exception (if required)
+
+else:
+       # execute if no exception
+
+finally:
+      # Some code .....(always executed)
+```
 
 ## 参考
 
@@ -125,3 +140,5 @@ title: Python基础
 [^dq]: [https://docs.python.org/3/library/collections.html#collections.deque](https://docs.python.org/3/library/collections.html#collections.deque)
 
 [^sl]: [https://www.learnbyexample.org/python-list-slicing/](https://www.learnbyexample.org/python-list-slicing/)
+
+[^ex]: [https://www.geeksforgeeks.org/try-except-else-and-finally-in-python/](https://www.geeksforgeeks.org/try-except-else-and-finally-in-python/)

@@ -101,12 +101,12 @@ title: 算法面经整理
     * 精排
     * 排序模型：
       * GBDT + LR、
-      * Xgboost、
-      * FM/FFM、
-      * Wide&Deep、
-      * DeepFM、
-      * Deep & Cross、
-      * DIN、
+      * Xgboost
+      * FM/FFM：后面那个就是加了个field，多个embedding
+      * Wide&Deep： 
+      * DeepFM：就是将wide部分换成了fm模型，不用手工做特征了。
+      * Deep & Cross：cross层可以等价于FM模型，但是特征交叉的纬度更高。相当于n次多元方程，n小于等于cross的层数。
+      * DIN：聚合用户过往行为向量到的时候引入attention机制。其中attention根据过往行为向量与当前需要推荐的广告向量一起计算(两个向量相减的绝对值与两个向量的原始值进行拼接)。
       * BST
 
   * 各阶段的目的：

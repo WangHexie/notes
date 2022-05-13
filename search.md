@@ -24,4 +24,8 @@ layout: page
   };
 </script>
 <script src="{{site.baseurl}}/js/lunr.min.js"></script>
+<script src="{{site.baseurl}}/js/lunr.stemmer.support.js"></script>
+<script src="{{site.baseurl}}/js/lunr.zh.js"></script>
+<script src="{{site.baseurl}}/js/lunr.multi.js"></script>
 <script src="{{site.baseurl}}/js/search.js"></script>
+

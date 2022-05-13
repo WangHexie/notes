@@ -96,7 +96,7 @@ title: 算法面经整理
         * Item2vec
         * Youtube DNN向量召回，
         * Graph Embedding召回，
-        * DSSM双塔召回
+        * DSSM双塔召回: n-gram 分词后，使用Word hashing进行处理。反正就是两个分开的网络呗
     * 粗排
     * 精排
     * 排序模型：
@@ -107,7 +107,17 @@ title: 算法面经整理
       * DeepFM：就是将wide部分换成了fm模型，不用手工做特征了。
       * Deep & Cross：cross层可以等价于FM模型，但是特征交叉的纬度更高。相当于n次多元方程，n小于等于cross的层数。
       * DIN：聚合用户过往行为向量到的时候引入attention机制。其中attention根据过往行为向量与当前需要推荐的广告向量一起计算(两个向量相减的绝对值与两个向量的原始值进行拼接)。
-      * BST
+      * BST：用户行为序列+Transformer
+        * position embedding：直接使用原始的embedding效果不是很好。用了事件的时间戳作为embedding（但是我觉得还是得处理过，不能直接用的。）
+          $$
+          \begin{equation}
+          \operatorname{pos}(v i)=\operatorname{timestamp}\left(v_{t}\right)-\operatorname{timestamp}\left(v_{i}\right)
+          \end{equation}
+          $$ 
+        * 作者还另外设计了交叉特征作为输入。
+        * 仅仅stack了一层，stack多层的效果并没有很好，反而下降了
+        * sequence长度仅仅20
+        * embedding size：4-64
 
   * 各阶段的目的：
     * 召回:召回层的特点是：数据量大、速度响应快、模型简单、特征较少。因此召回层的意义在于缩小对商品的计算范围，将用户感兴趣的商品从百万量级的商品中进行粗选，通过简单的模型和算法将百万量级缩小至几百甚至几十量级。这样用户才能有机会在毫秒的延迟下，得到迅速的商品反馈。

@@ -40,11 +40,44 @@ title: C++入门
 
 * operator ?
   
-* friend?
+* friend:
+  * **Friend Class** A friend class can access private and protected members of other class in which it is declared as friend.
+    ```c++
+    class Node {
+    private:
+        int key;
+        Node* next;
+    
+        /* Other members of Node Class */
+        friend int LinkedList::search();
+        // Only search() of linkedList
+        // can access internal members
+    };
+    ``` 
+  * **Friend Function** Like friend class, a friend function can be given a special grant to access private and protected members. 
+    ```c++
+    class Node {
+    private:
+        int key;
+        Node* next;
+        /* Other members of Node Class */
+    
+        // Now class  LinkedList can
+        // access private members of Node
+        friend class LinkedList;
+    };
+    ``` 
+  * 都是在function或者class前面加friend就行。
+  * 
 
 * template?
 
-* 右值引用
+* 右值引用[[^lrr]]：An lvalue is an expression that refers to a memory location and allows us to take the address of that memory location via the & operator. An rvalue is an expression that is not an lvalue. 
+  * X&& x
+  * 主要是为了实现一下两个功能：
+    1. move semantics: 为了能调用rvalue作为输入的赋值函数，赋值时不用构造一个临时变量然后销毁。而是交换原始的value和rvalue，退出时自动销毁rvalue的内容，从而提升性能。（需要overload copy constructor and assignment operator）
+    1. perfect forwarding：主要是处理引用和rvalue的template问题。
+  
 * 引用折叠
 * 宏
 * 成员初始化列表
@@ -57,3 +90,5 @@ title: C++入门
 [^1]: [https://github.com/huihut/interview](https://github.com/huihut/interview)
 
 [^2]: [https://www.tutorialspoint.com/cplusplus/cpp_storage_classes.htm](https://www.tutorialspoint.com/cplusplus/cpp_storage_classes.htm)
+
+[^lrr]: [http://thbecker.net/articles/rvalue_references/section_01.html](http://thbecker.net/articles/rvalue_references/section_01.html)

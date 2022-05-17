@@ -6,12 +6,13 @@
     if (results.length) { // Are there any results?
       var appendString = '';
       console.log(results)
+      var searchTerm = getQueryVariable('query');
 
 
       for (var i = 0; i < results.length; i++) {  // Iterate over the results
         var item = store[results[i].ref];
         console.log(results[i].score)
-        appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+        appendString += '<li><a href="' + item.url+ '/#:~:text='+ searchTerm + '"><h3>' + item.title + '</h3></a>';
         appendString += '<p>' + item.content.substring(0, 150) + '...</p></li>';
       }
 

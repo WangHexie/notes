@@ -127,6 +127,10 @@ title: 算法面经整理
     * NDCG：归一化折损增益，
     * MRR:(Mean Reciprocal Rank) $k_u$ 是第一个相关item的位置:$$\operatorname{MRR}(O, U)=\frac{1}{|U|} \sum_{u \in U} \frac{1}{k_{u}}$$
     * MAP: (Mean Average Precision)This is primarily an approximation of the original goal of the AP metric.
+      ![map]({{site.baseurl}}/images/interview/MAP.png) 
+    * NDCG: 可以使用标签里的相关性程度，而其他只能有相关和不相关。
+      * cons: 反馈不完整；IDCG等于零时处理；@k处理
+      ![ndcg]({{site.baseurl}}/images/interview/NDCG.png) 
     * The AP metric represents the area under the precision-recall curve.
     * ROC曲线含义，坐标轴：对正负样本类别数量比例具有鲁棒性 [[^roc]]
       * 坐标轴：Y:recall(真阳率)，X: 假阳率 $\frac{\lvert Prediction - Positive  \rvert}{\lvert negative  \rvert}$

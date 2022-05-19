@@ -5,9 +5,11 @@ layout: post
 title: C++面经
 ---
 
+
+Question List[[^ml]](其实吧，我怀疑就是抄的c++ primer里面的，c++primer介绍的确实详细。)
+
 * static 静态全局变量可以限制其仅在文件内部被访问。
 
-Question List[[^ml]]
 
 ### const和static在类中使用的注意事项（定义、初始化和使用）[[^1]]
   * static静态成员变量不能在类的内部初始化。在类的内部只是声明，定义必须在类定义体的外部，通常在类的实现文件中初始化，如：double Account::Rate=2.25;static关键字只能用于类定义体内部的声明中，定义时不能标示为static.
@@ -379,11 +381,34 @@ C++的STL源码（这个系列也很重要，建议侯捷老师的STL源码剖�
 
 STL源码中的hashtable的实现
 
-
 STL中unordered_map和map的区别和应用场景
+
 STL中vector的实现
-STL容器的几种迭代器以及对应的容器（输入迭代器，输出迭代器，前向迭代器，双向迭代器，随机访问迭代器）
-顺序容器：vector,deque是随机访问迭代器；list是双向迭代器
+
+  
+* STL容器的几种迭代器以及对应的容器[[^all]]
+  ![iterator]({{site.baseurl}}/images/c++/iterators.png)
+  * 输入迭代器[[^i]]:They are the iterators that can be used in sequential input operations, where each value pointed by the iterator is read-only once and then the iterator is incremented.
+    * Arithmetic Operators: Similar to relational operators, they also can’t be used with arithmetic operators like +, – and so on
+  * 输出迭代器[[^oi]]: They can be assigned values in a sequence, but cannot be used to access values, 
+    * Equality / Inequality Comparison: Unlike input iterators, output iterators **cannot be compared** for equality with another iterator.
+    * Arithmetic Operators: Similar to relational operators, they also can’t be used with arithmetic operators like +, – and so on
+  * 前向迭代器:Forward iterators are considered to be the combination of input as well as output iterators
+    * Use of offset dereference operator ([ ]): Forward iterators do not support offset dereference operator ([ ])
+  * 双向迭代器:Bidirectional iterators are iterators that can be used to access the sequence of elements in a range in both directions 
+    * Equality / Inequality Comparison:
+  * 随机访问迭代器:Random-access iterators are iterators that can be used to access elements at an arbitrary offset position relative to the element they point to, offering the same functionality as pointers. Random-access iterators are the most complete iterators in terms of functionality. All pointer types are also valid random-access iterators.
+    * Relational Operators: allowed
+      ```c++
+      A <= B     // Allowed
+      ```
+    * Arithmetic Operators:allowed
+      ```c++ 
+      B - 2     // Allowed
+      ``` 
+    * Use of offset dereference operator ([]): allowed
+    * 
+顺序容器：vector, deque是随机访问迭代器；list是双向迭代器
 
 容器适配器：stack,queue,priority_queue没有迭代器
 
@@ -490,3 +515,9 @@ C++和C的类型安全
 [^9]: [https://blog.csdn.net/gatieme/article/details/50953564](https://blog.csdn.net/gatieme/article/details/50953564)
 
 [^ml]: [https://blog.csdn.net/xie810005152/article/details/91038878](https://blog.csdn.net/xie810005152/article/details/91038878)
+
+[^i]: [https://www.geeksforgeeks.org/input-iterators-in-cpp/](https://www.geeksforgeeks.org/input-iterators-in-cpp/)
+
+[^oi]: [https://www.geeksforgeeks.org/output-iterators-cpp/](https://www.geeksforgeeks.org/output-iterators-cpp/)
+
+[^all]: [https://www.geeksforgeeks.org/iterators-c-stl/](https://www.geeksforgeeks.org/iterators-c-stl/)

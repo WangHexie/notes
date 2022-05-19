@@ -136,6 +136,9 @@ title: C++入门
 * 智能指针：能够自动化地释放资源。
 * 不想使用编译器自动生成的函数，就应该明确拒绝（将不想使用的成员函数声明为 private，并且不予实现）
 
+* typedef as member(// 内嵌声明(nested type))
+* using kkk = typename 
+
 
 ## 参考文献
 

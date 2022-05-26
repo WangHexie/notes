@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 最优化
+title: 最优化方法
 ---
 
 ## 线性规划

@@ -60,11 +60,22 @@ $$
 X^0 &= X+X^{'} \\
 X^{(l+1)} &= A^{l+1}(X+X^{'})W^{'} \\
 X^{(l+1)} &= A^{l+1}XW^{'}+A^{l+1}X^{'}W^{'} \\
-
-
-
 \end{aligned}
-
 \end{equation}
 $$
 
+
+$$
+\begin{align}
+    P_m(M; M_c, D_d) &= (f_M(D_d) == f_{M_c}(D_d)) \\
+    P_m(M; D_c, G) &= (f_M(D_c) == f_{M}(G(D_c))) \\
+
+\end{align}
+$$
+
+
+$$
+\begin{equation}
+    f_{M_d}(D_d) \equiv f_{M_c}(D_d)
+\end{equation}
+$$

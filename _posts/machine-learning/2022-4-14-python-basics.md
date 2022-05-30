@@ -111,6 +111,9 @@ finally:
       # Some code .....(always executed)
 ```
 
+## 反射 [[^rf]]
+
+
 ## 参考
 
 [^1]: [https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md](https://github.com/jackfrued/Python-Interview-Bible/blob/master/Python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8-%E5%9F%BA%E7%A1%80%E7%AF%87-2020.md)
@@ -142,3 +145,5 @@ finally:
 [^sl]: [https://www.learnbyexample.org/python-list-slicing/](https://www.learnbyexample.org/python-list-slicing/)
 
 [^ex]: [https://www.geeksforgeeks.org/try-except-else-and-finally-in-python/](https://www.geeksforgeeks.org/try-except-else-and-finally-in-python/)
+
+[^rf]: [https://www.cnblogs.com/vipchenwei/p/6991209.html](https://www.cnblogs.com/vipchenwei/p/6991209.html)

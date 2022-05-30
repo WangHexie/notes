@@ -139,6 +139,7 @@ title: C++入门
 * typedef as member(// 内嵌声明(nested type))
 * using kkk = typename 
 
+* default initialization and value initialization in class?
 
 ## 参考文献
 

@@ -140,6 +140,12 @@ title: C++入门
 * using kkk = typename 
 
 * default initialization and value initialization in class?
+* rvalue reference lvalue reference 哪个不能赋值给哪个？
+* 类的初始化顺序
+* forward (why? for what?)
+* 引用折叠
+* function template
+* pointer to member function. and use it in find_if(19.4)
 
 ## 参考文献
 

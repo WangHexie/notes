@@ -45,7 +45,7 @@ title: 面试整理
       \end{equation}
        $$ 
  
-12. 
+12. 线上长序列如何处理：将时间序列和线上模型预测分开？(将用户兴趣建模和ctr预估解耦) [[^7]]。
 
 
 
@@ -63,3 +63,5 @@ title: 面试整理
 [^5]: [https://blog.csdn.net/qq_27782503/article/details/88778831](https://blog.csdn.net/qq_27782503/article/details/88778831)
 
 [^6]: [https://blog.csdn.net/zhangyingjie09/article/details/85875264](https://blog.csdn.net/zhangyingjie09/article/details/85875264)
+
+[^7]: [https://cloud.tencent.com/developer/article/1645247](https://cloud.tencent.com/developer/article/1645247)

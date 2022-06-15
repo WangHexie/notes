@@ -45,4 +45,10 @@ graphs: A review and empirical study`：
 
 * **BadEncoder: Backdoor Attacks to Pre-trained
 Encoders in Self-Supervised Learning（2021.8）**：这个就是self-supurvised。其实仅仅是self-supervised 的loss加上backdoor-attack的loss其他没什么变化。
-  
+
+* **TOP: Backdoor Detection in Neural Networks via Transferability of Perturbation(2021.3)**:
+
+## Not Finished:
+* **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
+* **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题
+* **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor

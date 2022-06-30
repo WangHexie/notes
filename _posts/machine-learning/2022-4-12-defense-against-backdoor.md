@@ -47,6 +47,8 @@ graphs: A review and empirical study`：
 Encoders in Self-Supervised Learning（2021.8）**：这个就是self-supurvised。其实仅仅是self-supervised 的loss加上backdoor-attack的loss其他没什么变化。
 
 * **TOP: Backdoor Detection in Neural Networks via Transferability of Perturbation(2021.3)**:
+* **Backdoor Learning: A Survey(2022)**：
+  * 现有的防御方法:![defense]({{site.baseurl}}/images/defense-against-backdoor/review_defense.png)
 
 ## Not Finished:
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）

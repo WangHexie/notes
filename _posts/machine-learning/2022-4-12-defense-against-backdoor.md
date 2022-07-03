@@ -49,6 +49,30 @@ Encoders in Self-Supervised Learning（2021.8）**：这个就是self-supurvised
 * **TOP: Backdoor Detection in Neural Networks via Transferability of Perturbation(2021.3)**:
 * **Backdoor Learning: A Survey(2022)**：
   * 现有的防御方法:![defense]({{site.baseurl}}/images/defense-against-backdoor/review_defense.png)
+  * 攻击场景：越往下，攻击者能控制的部分越多。
+     1. 使用被污染的数据集。
+     2. 使用第三方的训练平台。
+     3. 使用第三方预训练模型。
+  * 还有一种挺有意思的攻击方式是，利用语义信息进行攻击。一般的攻击都是无意义的噪点或是预定义的stamp。
+  * 即便是基于优化生成的trigger也有所有样本都一样以及每个样本对应的trigger都不一样的区分。
+  * 同时攻击还能直接对模型参数进行（不再污染训练样本），例如进行贪心搜索。 
+    * 另外就是加入子结构了。
+  * 防御的话：
+    1. 预处理：
+       1. autoencoder之类的手段。
+       2. 方形区域检测
+    2. 模型处理
+       1. 利用灾难性遗忘，重新训练模型。
+    3. 合成trigger，然后消除trigger
+       1. 还有remove neurons with high activation values in response to the trigger
+       2. 更难的是从黑盒模型中恢复trigger。
+    4. 减小后门样本的有效性：
+       1. noisy sgd
+       2. clip，（后门样本梯度可能更大）
+    5. 数据集阶段消除trigger，过滤受污染样本。
+    6. 部署时检测trigger
+    7. 理论上可行的防御
+       1. random-smoothing（虽然实际上并不好）
 
 ## Not Finished:
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）

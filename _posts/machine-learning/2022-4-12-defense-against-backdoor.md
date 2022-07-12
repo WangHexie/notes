@@ -74,6 +74,18 @@ Encoders in Self-Supervised Learning（2021.8）**：这个就是self-supurvised
     7. 理论上可行的防御
        1. random-smoothing（虽然实际上并不好）
 
+* **ADVERSARIAL UNLEARNING OF BACKDOORS VIA IMPLICIT HYPERGRADIENT(ICLR 2022)**:
+  *  algorithm to solve the minimax
+  *  utilizes the implicit hypergradient to account for the interdependence between inner and outer optimization
+  *  One popular class of approaches (Wang et al., 2019; Chen et al., 2019; Guo et al., 2019)
+is to first synthesize the trigger patterns from the model and then unlearn the triggers. However,
+these approaches presume that backdoor triggers only target a small portion of classes, thereby
+becoming ineffective when many classes are targeted by the attacker.
+  * ass and an important but underexplored setting where
+multiple classes are targeted. I-BAU’s performance is comparable to and most often significantly
+better than the best baseline. Particularly, its performance is more robust to the variation on triggers,
+attack settings, poison ratio, and clean data size
+
 ## Not Finished:
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
 * **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题

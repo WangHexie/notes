@@ -101,12 +101,13 @@ $$ \delta_2 = P_{p, \xi}(\delta_1 + G_2). $$
 $$ \vdots $$
 $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}, $$
 
-## Not Finished:
-* **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
-* **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题
-* **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor
 * **A GENERAL FRAMEWORK FOR DEFENDING AGAINST BACKDOOR ATTACKS VIA INFLUENCE GRAPH（2021）**。该论文主要是介绍了通过数据间的关系来判断数据是否为加入后门的数据。该关系判断标准为去除某一训练数据后模型对另一数据的预测概率的数值变化程度。构建数据间的影响力关系后，抽取其中的MAXIMUM AVERAGE SUB-GRAPH作为被污染数据，并将其删除。其中污染的节点数量的确定文中没有比较好的解决方式，直接设置为已知量。
 
 * **Hidden Trigger Backdoor Attacks（AAAI 2020）**：We propose a novel form of backdoor attack where poisoned data look natural with correct labels and also more importantly, the attacker hides the trigger in the poisoned data and keeps the trigger secret until the test time。这篇论文挺奇特的，不仅标签不可见，甚至图像和target很相近，并且标注也为target。这样子的话，人工对图像进行检查并且重新标注也不可能。作者在原始图像上进行优化，通过让加上patch的图片与最终输出的图片表征相近，并且加上限制图像需要与target中的某一图像距离相近，从而达到效果，算是比较有意思的一个创新点。
   *  The victim uses a pre-trained deep model and finetunes it for a classification task using the poisoned data
   *  
+
+## Not Finished:
+* **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
+* **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题
+* **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor

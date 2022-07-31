@@ -105,9 +105,10 @@ $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}
 
 * **Hidden Trigger Backdoor Attacks（AAAI 2020）**：We propose a novel form of backdoor attack where poisoned data look natural with correct labels and also more importantly, the attacker hides the trigger in the poisoned data and keeps the trigger secret until the test time。这篇论文挺奇特的，不仅标签不可见，甚至图像和target很相近，并且标注也为target。这样子的话，人工对图像进行检查并且重新标注也不可能。作者在原始图像上进行优化，通过让加上patch的图片与最终输出的图片表征相近，并且加上限制图像需要与target中的某一图像距离相近，从而达到效果，算是比较有意思的一个创新点。
   *  The victim uses a pre-trained deep model and finetunes it for a classification task using the poisoned data
-  *  
+
+* **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor。该论文作者认为受到后门攻击的模型实际上是有严重问题的。主要原因就是可以从模型中恢复出trigger，并且trigger无需和攻击者使用的trigger一致。说明模型并不是单单植入后门，而是模型有问题。这篇论文的问题就是很依赖人工生成另外的trigger，并不能自动化生成。
+
 
 ## Not Finished:
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
 * **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题
-* **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor

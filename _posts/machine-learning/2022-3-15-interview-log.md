@@ -47,8 +47,22 @@ title: 面试整理
  
 12. 线上长序列如何处理：将时间序列和线上模型预测分开？(将用户兴趣建模和ctr预估解耦) [[^7]]。
 
-
-
+## 美团
+1. bert结构
+2. bart bert的区别
+3. 为什么不用bert做文本生成任务
+4. 上面两个具体的objective
+5. position embedding的形式，以及sincos的那种为什么要这么做
+6. 为什么用layernorm而不是batchnorm
+7. 激活函数有什么
+8. 推一下sigmoid的梯度
+9. 双塔模型的objective和数据流
+10. fm和lr区别
+11. 为什么lr学不到交叉特征
+12. fm召回和其他的有什么区别
+13. fm如何用在哪里
+14. 新用户召回的方式
+15. 题：ip str有几种可能，dfs
 
 ## 参考文献
 

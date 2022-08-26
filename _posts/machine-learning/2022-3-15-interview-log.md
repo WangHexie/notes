@@ -52,11 +52,31 @@ title: 面试整理
 2. bart bert的区别
 3. 为什么不用bert做文本生成任务
 4. 上面两个具体的objective
-5. position embedding的形式，以及sincos的那种为什么要这么做
-6. 为什么用layernorm而不是batchnorm
+5. position embedding的形式，以及sincos的那种为什么要这么做 [[^9]]
+      
+      $$
+      \begin{align}
+         P(k, 2i) = sin(\frac{k}{10000^{2i/d_{model}}}) \\
+         P(k,2i+1) = cos(\frac{k}{10000^{2i/d_{model}}}) 
+      \end{align}
+      $$
+
+   允许模型学到相对位置，(能用一个简单的矩阵得到偏移后的位置)，并且能距离衰减。
+6. 为什么用layernorm而不是batchnorm[[^10]]:时间序列长度不同统计量不稳定
 7. 激活函数有什么
 8. 推一下sigmoid的梯度
-9. 双塔模型的objective和数据流
+
+   $$
+   \begin{align}
+      f(x) &= \frac{1}{1+e^{-x}}\\
+      f'(x) &= \left(\frac{e^x}{1+e^x}\right)' \\
+       &= \frac{e^x(1+e^x)-e^{2x}}{(1+e^x)^2} \\
+       &= \frac{e^x}{(1+e^x)^2}
+   \end{align}
+   $$
+
+
+9.  双塔模型的objective和数据流
 10. fm和lr区别
 11. 为什么lr学不到交叉特征
 12. fm召回和其他的有什么区别
@@ -79,3 +99,7 @@ title: 面试整理
 [^6]: [https://blog.csdn.net/zhangyingjie09/article/details/85875264](https://blog.csdn.net/zhangyingjie09/article/details/85875264)
 
 [^7]: [https://cloud.tencent.com/developer/article/1645247](https://cloud.tencent.com/developer/article/1645247)
+
+[^9]: [https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/](https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/#:~:text=Transformers%20use%20a%20smart%20positional,summed%20with%20its%20positional%20information.)
+
+[^10]: [https://www.zhihu.com/question/395811291](https://www.zhihu.com/question/395811291)

@@ -94,7 +94,7 @@ $$
 \end{equation}
 $$
 
-## FM 做召回时 [[^1]]
+## FM 做召回时 [[^1], [^2]]
 * 直接将user对应的特征的embedding相加，item对应的embedding相加，分别作为对应的向量。
 * 两者相乘后就是对应的交互向量
 * 而自身的交互向量，（不太重要？），所以可以舍去？
@@ -103,3 +103,5 @@ $$
 百面深度学习
 
 [^1]: [https://jishuin.proginn.com/p/763bfbd6c95c](https://jishuin.proginn.com/p/763bfbd6c95c)
+
+[^2]: [https://zhuanlan.zhihu.com/p/58160982](https://zhuanlan.zhihu.com/p/58160982)

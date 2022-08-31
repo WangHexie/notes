@@ -7,7 +7,7 @@ title: 预训练语言模型
    * 预训练方式：因为是双向LSTM，所以能计算前向概率以及后向概率，两者相乘就得到了第n个单词生成的概率（算是常规的操作了，和CRF之类的基本差不多）。作者是对logP进行优化，所以就相当于进行相加。最终的优化目标还是句子的生成概率。该生成概率和GPT之类的生成模型的生成概率不一致。为每个单词的条件生成概率相乘，条件为其他所有单词。
       $$
       \begin{equation}
-      p\left(t_{1}, t_{2}, \ldots, t_{N}\right)=\prod_{k=1}^{N} p\left(t_{k} \mid t_{1}, t_{2}, \ldots, t_{k-1}\right)
+      p\left(t_{1}, t_{2}, \ldots, t_{N}\right)=\prod_{k=1}^{N} p\left(t_{k} \mid t_{1}, t_{2}, \ldots, t_{N}\right)
       \end{equation}
       $$
    * 然后将输入以及模型所有层的输出拼接在一起，作为下游任务的输入。

@@ -24,6 +24,10 @@ title: 深度学习面试
        * 防止数据落入非线性函数的饱和区
      * 激活函数之后：
        * Relu 没有上述函数的饱和区问题，所以可以放在后面，避免非线性特征分布趋于同化。
+   
+   * mean, variance 是通过滑动平均得到的。model.eval()会停止更新mean，variance，但是梯度还是会计算的。
+   * $B*L*C$ 出来的是 $C*1$
+     * layernorm 出来的是 $B*1$
 
 ## Dropout
   * 测试和训练时候区别：训练时候需要除以$1-p$,或者预测时候乘以$p$。
@@ -37,9 +41,7 @@ $$
 \begin{align}
   h_n &= \sigma(W[x_n,h_{n-1}] +b)\\
   O_n &= \sigma(Vh_{n}+b)
-
 \end{align}
-  
 $$
    
 ## [LSTM](https://towardsdatascience.com/tutorial-on-lstm-a-computational-perspective-f3417442c2cd) 
@@ -94,12 +96,17 @@ $$
 \end{equation}
 $$
 
-## FM 做召回时 [[^1]]
+## FM 做召回时 [[^1], [^2]]
 * 直接将user对应的特征的embedding相加，item对应的embedding相加，分别作为对应的向量。
 * 两者相乘后就是对应的交互向量
 * 而自身的交互向量，（不太重要？），所以可以舍去？
+* 该方式可以将算法复杂度从 $kn^2$ 降到 $kn$
+
+
 
 ## 参考文献
 百面深度学习
 
 [^1]: [https://jishuin.proginn.com/p/763bfbd6c95c](https://jishuin.proginn.com/p/763bfbd6c95c)
+
+[^2]: [https://zhuanlan.zhihu.com/p/58160982](https://zhuanlan.zhihu.com/p/58160982)

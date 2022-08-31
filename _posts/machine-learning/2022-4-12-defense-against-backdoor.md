@@ -108,7 +108,9 @@ $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}
 
 * **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor。该论文作者认为受到后门攻击的模型实际上是有严重问题的。主要原因就是可以从模型中恢复出trigger，并且trigger无需和攻击者使用的trigger一致。说明模型并不是单单植入后门，而是模型有问题。这篇论文的问题就是很依赖人工生成另外的trigger，并不能自动化生成。
 
+* **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks(2019)**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）这篇论文也有提到unlearning的概念。该论文声称其为第一个能探测和防御后门后门攻击的通用算法。该算法主要实现三个功能，首先判断一个模型是否受到后门攻击，第二是识别出该后门的触发器，第三是消除该后门的影响。首先判断是否受到后门攻击是通过识别决策边界做到的。 识别处后门的触发器是通过第一步的优化过程，找到可能的后门。最后消除后门影响是识别出被后门激活的neuron（这个方法效果不好）以及unlearning（和我的算法差不多，就是通过训练模型消除影响）。
+
 
 ## Not Finished:
-* **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）
+
 * **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题

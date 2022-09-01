@@ -62,7 +62,17 @@ $o_{t}$ is the output gate $c_{t}$ is the cell state
 $h_{t}$ is the hidden state   
 
 $\sigma_{g}: \operatorname{sigmoid}$    
+
+$$
+sigmoid(x) = \frac{1}{1+e^{-x}}
+$$
+
 $\sigma_{c}: \tanh$
+
+
+$$
+\tanh(x) = \frac{e^{x}-e^{-x}}{e^{x} +e^{-x}}
+$$
 
 or   
 

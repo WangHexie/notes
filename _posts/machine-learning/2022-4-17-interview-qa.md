@@ -172,30 +172,84 @@ title: 算法面经整理
 ## 机器学习
 - [ ] 手推bp公式
 - [ ] SVM（原理）[[^rr]]
-LR（为啥用sigmoid函数，交叉熵推导，MAE和MLP，反向传播，归一化，正则化）
-降维算法（SVD和PCA）
-K-Means（手撕代码实现）
-决策树（各种生成和剪枝方法）:https://blog.csdn.net/pxhdky/article/details/84102660
-集成学习（随机森林、XGBoost、AdaBoost、GBDT）
-EM算法（原理）:https://zhuanlan.zhihu.com/p/40991784
-过拟合（正则化、增加训练数据、数据增强、标签平滑、BatchNorm、Early-Stop、交叉验证、Dropout、Pre-trained、引入先验知识(贝叶斯，先验分布)）
-方差偏差分解（解释什么是方差什么是偏差，公式推导）：https://zhuanlan.zhihu.com/p/38853908
-正则化（L1和L2的会有啥现象、解释原因、分别代表什么先验：https://www.zhihu.com/question/23536142，bias要不要正则：https://www.zhihu.com/question/66894061）
-初始化（不同网络初始化有啥区别：https://zhuanlan.zhihu.com/p/62850258，神经网络隐层可以全部初始化为0吗）
-激活函数（优缺点，sigmoid、tanh、relu、gelu）
-损失函数（用过哪些损失函数，为啥分类不用MSE）
-信息论（信息熵、条件熵、联合熵、相对熵、互信息的概念，交叉熵和KL散度区别）
-归一化（为什么要做归一化，各种归一化的区别和优缺点，NLP为啥不用BatchNorm）
-梯度消失（残差、门控、sigmoid换relu、归一化）
-梯度爆炸（截断）
-优化器（原理和演进过程，SGD、AdaGrad、RMSprop、AdaDelta、Adam、AdamW）
-显存爆炸（重计算、梯度累加、混合精度训练、Adam换成SGD、多用inplace）
-学习率（衰减、warmup、自适应、平时自己使用的时候对lr有什么调整心得吗）
-样本不均衡（降/过采样和带权重的loss）
-数据预处理（离散特征和连续特征）
-评价指标（Acc、Precision、Recall、F1、ROC、AUC、代码实现AUC）
-神经网络（优缺点、演进和公式推导，lstm、cnn、transformer）
-OOV咋办
+* LR（为啥用sigmoid函数，交叉熵推导，MAE和MLP，反向传播，归一化，正则化）    
+* 降维算法（SVD和PCA）    
+* K-Means（手撕代码实现）   
+* 决策树（各种生成和剪枝方法）:https://blog.csdn.net/pxhdky/article/details/84102660    
+* 集成学习（随机森林、XGBoost、AdaBoost、GBDT）    
+* EM算法（原理）:https://zhuanlan.zhihu.com/p/40991784    
+* 过拟合（正则化、增加训练数据、数据增强、标签平滑、BatchNorm、Early-Stop、交叉验证、Dropout、Pre-trained、引入先验知识(贝叶斯，先验分布)）    
+* 方差偏差分解（解释什么是方差什么是偏差，公式推导）：https://zhuanlan.zhihu.com/p/38853908    
+* 正则化（L1和L2的会有啥现象、解释原因、分别代表什么先验：https://www.zhihu.com/question/23536142 ， bias要不要正则：https://www.zhihu.com/question/66894061 ）    
+* 初始化（不同网络初始化有啥区别：https://zhuanlan.zhihu.com/p/62850258 ，神经网络隐层可以全部初始化为0吗）    
+* 激活函数（优缺点，sigmoid、tanh、relu、gelu）https://zhuanlan.zhihu.com/p/71882757    
+  * sigmoid导数： $y(1-y)$
+  * tanh 导数： $1-y^2$    
+  * prelu公式: $\max(\alpha x, x)$ 其中$\alpha$ 是可学习的。
+  * elu公式：$\alpha (exp(x)-1) \text{  where x <= 0}$
+
+
+* 损失函数（用过哪些损失函数，为啥分类不用MSE）: 也就是说，预测错误时，依然没有梯度让网络可以学习。主要原因在于MSE Loss（mean-squared loss）当与Sigmoid或Softmax搭配使用时，loss的偏导数的变化趋势和预测值及真实值之间的差值的变化趋势不一致。也就是说当预测值与真实值的差值变大的时候，其偏导数反而可能变小。 https://zhuanlan.zhihu.com/p/336386852
+* 信息论  https://zhuanlan.zhihu.com/p/35379531
+  * 信息熵:信息量的期望值，同时也可以认为是平均编码长度，将符号转化为log里的-1，就变成了平均编码长度。
+    * $\mathrm{H}(X)=\mathrm{E}[\mathrm{I}(X)]=\mathrm{E}[-\ln (\mathrm{P}(X))]$  ,
+    * $\mathrm{H}(X)=\sum_i \mathrm{P}\left(x_i\right) \mathrm{I}\left(x_i\right)=-\sum_i \mathrm{P}\left(x_i\right) \log _b \mathrm{P}\left(x_i\right)$
+    * https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA)
+  * 条件熵: $\begin{aligned} H(Y \mid X) &=\sum_x p(x) H(Y \mid X=x) \\ &=-\sum_x p(x) \sum_y p(y \mid x) \log p(y \mid x) \\ &=-\sum_x \sum_y p(x, y) \log p(y \mid x) \\ &=-\sum_{x, y} p(x, y) \log p(y \mid x) \end{aligned}$
+    * $\mathrm{H}(\mathrm{Y} \mid \mathrm{X})=\mathrm{H}(\mathrm{X}, \mathrm{Y})-\mathrm{H}(\mathrm{X})$
+  * 联合熵: $H(X, Y)=-\sum_{x, y} p(x, y) \log p(x, y)=-\sum_{i=1}^n \sum_{j=1}^m p\left(x_i, y_i\right) \log p\left(x_i, y_i\right)$ 
+  * 相对熵(KL散度)：$D_{K L}(p \| q)=\sum_x p(x) \log \frac{p(x)}{q(x)}=E_{p(x)} \log \frac{p(x)}{q(x)}$
+  * 交叉熵： $H(p, q)=\sum_x p(x) \log \frac{1}{q(x)}=-\sum_x p(x) \log q(x)$ 
+    * 由此可以看出根据非真实分布 q(x) 得到的平均码长大于根据真实分布 p(x) 得到的平均码长。
+  * JS散度：kl 散度 p，q 互换相加除以2，解决不对称问题
+    * https://zhuanlan.zhihu.com/p/240676850
+  * 信息增益：$\begin{aligned} g(D, A) &=H(D)-H(D \mid A) \\ &=-\sum P\left(D_i\right) \log P\left(D_i\right)-\sum \frac{\left|D_i\right|}{|D|} H\left(D_i\right) \end{aligned}$ 
+  * 互信息的概念：$I(X ; Y)=H(X)-H(X \mid Y)=H(Y)-H(Y \mid X)=H(X)+H(Y)-H(X, Y)$
+    * ![mut_info]({{site.baseurl}}/images/interview-qa/mutuation_information.jpg)
+    * 说“互信息”的时候，两个随机变量的地位是相同的；说“信息增益”的时候，是把一个变量看成减小另一个变量不确定度的手段。但其实二者的数值是相等的。
+
+  * 交叉熵和KL散度区别：DKL(p||q)=H(p,q)−H(p)（当用非真实分布 q(x) 得到的平均码长比真实分布 p(x) 得到的平均码长多出的比特数就是相对熵）
+* 归一化:
+  * 为什么要做归一化:https://zhuanlan.zhihu.com/p/265411459
+    * 加快收敛：特征间的单位（尺度）可能不同, 因尺度差异，其损失函数的等高线图可能是椭圆形，梯度方向垂直于等高线，下降会走zigzag路线，而不是指向local minimum。
+    * 早期对BN有效性的解释是其有助于缓解神经网络“内部协方差漂移”（Internal Covariance Shift，ICS）问题。即，后面的层的学习是基于前面层的分布来的，只有前面一层的分布是确定的，后面的层才容易学习到有效的模式，然而，由于前面的层的分布会随着batch的变化而有所变动，导致了后面的层看来“前面一直在动，我无法安心学习呀”。
+  * 什么时候不需要Feature Scaling？：
+    * 与距离计算无关的概率模型，不需要feature scaling，比如Naive Bayes；
+    * 与距离计算无关的基于树的模型，不需要feature scaling，比如决策树、随机森林等，树中节点的选择只关注当前特征在哪里切分对分类更好，即只在意特征内部的相对大小，而与特征间的相对大小无关。
+    * 所以pca，knn，svm等模型必须进行归一化
+  * 各种归一化的区别和优缺点  https://blog.csdn.net/qq_29367075/article/details/110006934
+    * Batch Normalization：
+      1. BN的计算就是把每个通道的NHW单独拿出来归一化处理
+      2. 针对每个channel我们都有一组γ,β，所以可学习的参数为2*C
+      3. 当batch size越小，BN的表现效果也越不好，因为计算过程中所得到的均值和方差不能代表全局。
+    * Layer Normalizaiton：
+      1. LN的计算就是把每个CHW单独拿出来归一化处理，不受batchsize 的影响
+      2. 常用在RNN网络，但如果输入的特征区别很大，那么就不建议使用它做归一化处理
+    * Instance Normalization
+      1. IN的计算就是把每个HW单独拿出来归一化处理，不受通道和batchsize 的影响
+      2. 常用在风格化迁移，但如果特征图可以用到通道之间的相关性，那么就不建议使用它做归一化处理
+  * NLP为啥不用BatchNorm：看了一通还是觉得 科学空间的作者说的有道理，nlp里文本长度有变化其统计量不稳定
+* 梯度消失（残差、门控、sigmoid换relu、归一化）
+* 梯度爆炸（截断）
+* 优化器（原理和演进过程，SGD、AdaGrad、RMSprop、AdaDelta、Adam、
+  * AdamW： L2 regularization 和 Weight decay不一致
+* 显存爆炸（
+  * 重计算：要保存中间几个检查点的计算数值，所以不用从头开始重新计算，而是只要从检查点开始重新计算就好了欸。真好用
+  * 梯度累加、混合精度训练、Adam换成SGD、
+  * 多用inplace：例如relu，直接修改输入值，所以就没有
+* 学习率（
+  * 衰减：
+    * 指数衰减
+    * 固定步长衰减
+    * 余弦退火衰减
+  * warmup：由于刚开始训练时,模型的权重(weights)是随机初始化的，此时若选择一个较大的学习率,可能带来模型的不稳定(振荡)，
+  * 自适应、
+  * 平时自己使用的时候对lr有什么调整心得吗）
+* 样本不均衡（降/过采样和带权重的loss）
+* 数据预处理（离散特征和连续特征）
+* 评价指标（Acc、Precision、Recall、F1、ROC、AUC、代码实现AUC）
+* 神经网络（优缺点、演进和公式推导，lstm、cnn、transformer）
+* OOV咋办
 - [ ] NLP包括两板块，一个是通用的基础（所有面试官都可能问）和你个人研究方向的基础。
 
 个人研究方向基础没啥好说的，比如你做生成，面试官就很可能让你手写beam search；做序列标注的就可能让你推viterbi解码、HMM和CRF区别之类的；做文本匹配可能就问你双塔和concat模型、CLS塌缩和对比学习之类的。这个需要大家根据自身的情况选择性去复习。

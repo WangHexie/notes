@@ -246,83 +246,97 @@ title: 算法面经整理
   * 自适应、
   * 平时自己使用的时候对lr有什么调整心得吗）
 * 样本不均衡（降/过采样和带权重的loss）
-* 数据预处理（离散特征和连续特征）
-* 评价指标（Acc、Precision、Recall、F1、ROC、AUC、代码实现AUC）
-* 神经网络（优缺点、演进和公式推导，lstm、cnn、transformer）
+* 数据预处理（
+  * 离散特征
+    * one-hot
+      * 映射到欧式空间，方便计算距离
+      * 能够进行归一化
+  * 连续特征
+    * 归一化
+    * 离散化：
+      * 优点：鲁棒性高；方便增加特征，迭代模型；为逻辑回归模型引入了非线性，提升模型表达能力；便于特征交叉，进一步增加非线性；降低过拟合风险。
+* 评价指标（Acc、Precision、Recall、F1、
+  * ROC：y：真阳；x：假阳
+  * AUC：$A U C=\frac{\sum_{i \in \text { posittveClass }} \operatorname{rank}-\frac{M(1+M)}{2}}{M \times N}$
+  * 代码实现AUC）
+* 神经网络（
+  * 优点
+  * 缺点：需要数据量大；运算量大；可解释性低；
+  * 演进和公式推导，lstm、cnn、transformer）
 * OOV咋办
 - [ ] NLP包括两板块，一个是通用的基础（所有面试官都可能问）和你个人研究方向的基础。
+## NLP
+* 个人研究方向基础没啥好说的，比如你做生成，面试官就很可能让你手写beam search；做序列标注的就可能让你推viterbi解码、HMM和CRF区别之类的；做文本匹配可能就问你双塔和concat模型、CLS塌缩和对比学习之类的。这个需要大家根据自身的情况选择性去复习。
 
-个人研究方向基础没啥好说的，比如你做生成，面试官就很可能让你手写beam search；做序列标注的就可能让你推viterbi解码、HMM和CRF区别之类的；做文本匹配可能就问你双塔和concat模型、CLS塌缩和对比学习之类的。这个需要大家根据自身的情况选择性去复习。
+* 通用NLP基础我和小伙伴暂时能想起来的主要包括下面这些了。
 
-通用NLP基础我和小伙伴暂时能想起来的主要包括下面这些了。
+* 经典模型的原理和手撸代码
 
-经典模型的原理和手撸代码
+* 文本关键词抽取（textrank和tf-idf）
 
-文本关键词抽取（textrank和tf-idf）
+* 词向量模型（NNLM、word2vec和glove）
 
-词向量模型（NNLM、word2vec和glove）
+* 相对于NNLM，word2vec的改进有哪些
 
-相对于NNLM，word2vec的改进有哪些
+* 哈夫曼树的构建方法，在NLP有啥应用
 
-哈夫曼树的构建方法，在NLP有啥应用
+* hierarchical softmax和负采样的原理和复杂度
 
-hierarchical softmax和负采样的原理和复杂度
+* 负采样的具体实现方法
 
-负采样的具体实现方法
+* word2vec和glove的区别
 
-word2vec和glove的区别
+* 怎样评估词向量的质量
 
-怎样评估词向量的质量
+* 选出当前query和100万个key词向量相似度的TopK，复杂度尽可能低（faiss）
 
-选出当前query和100万个key词向量相似度的TopK，复杂度尽可能低（faiss）
+* 预训练发展
 
-预训练发展
+* word2vec - glove - ELMo - GPT - BERT - others的演进，每个模型分别解决什么问题
 
-word2vec - glove - ELMo - GPT - BERT - others的演进，每个模型分别解决什么问题
+* Transformer的细节
 
-Transformer的细节
+* 为什么要用多头（多个空间学习多种pattern、降低注意力学习的风险）
 
-为什么要用多头（多个空间学习多种pattern、降低注意力学习的风险）
+* 为什么Q和K的映射矩阵不相同（关系对称、容易得到单位矩阵）
 
-为什么Q和K的映射矩阵不相同（关系对称、容易得到单位矩阵）
+* 为什么注意力权重要除  （防止梯度消失）
 
-为什么注意力权重要除  （防止梯度消失）
+* 为什么用乘性注意力不用加性注意力（乘性计算量更小？）
 
-为什么用乘性注意力不用加性注意力（乘性计算量更小？）
+* 为什么要有FFN模块（增加模型的非线性能力）
 
-为什么要有FFN模块（增加模型的非线性能力）
+* Transformer和BERT的位置编码有啥区别（三角函数式和可学习向量）
 
-Transformer和BERT的位置编码有啥区别（三角函数式和可学习向量）
+* 残差结构及意义（防止梯度消失和网络退化）
 
-残差结构及意义（防止梯度消失和网络退化）
+* 哪个block中更耗时，哪个更占显存（序列短的时候FFN耗时，长的时候MHA耗时；FFN更占显存）
 
-哪个block中更耗时，哪个更占显存（序列短的时候FFN耗时，长的时候MHA耗时；FFN更占显存）
+* transformer的LayerNorm有哪些（post-norm和pre-norm）
 
-transformer的LayerNorm有哪些（post-norm和pre-norm）
+* 如何对pad进行mask（将pad的attention_score加上-np.inf，过softmax后会变0）
 
-如何对pad进行mask（将pad的attention_score加上-np.inf，过softmax后会变0）
+* 怎样解决曝光偏差（训练时以一定的概率用上一时刻的输出、NAR、占位符生成、基于负梯度构建对抗样本）
 
-怎样解决曝光偏差（训练时以一定的概率用上一时刻的输出、NAR、占位符生成、基于负梯度构建对抗样本）
+* transformer加速（NAR，知识蒸馏、剪枝、动态退出、稀疏注意力、线性注意力等）
 
-transformer加速（NAR，知识蒸馏、剪枝、动态退出、稀疏注意力、线性注意力等）
+* attention瓶颈（low rank，talking-head等）
 
-attention瓶颈（low rank，talking-head等）
+* BERT的细节
 
-BERT的细节
+* BERT怎么做分词(Basic Tokenizer和WordPiece Tokenizer)
 
-BERT怎么做分词(Basic Tokenizer和WordPiece Tokenizer)
+* WordPiece和BPE有啥区别
 
-WordPiece和BPE有啥区别
+* BERT的两个预训练任务分别有啥优缺点，后续有啥改进工作
 
-BERT的两个预训练任务分别有啥优缺点，后续有啥改进工作
+* 为什么BERT要用自己学习的位置编码（在训练充分的情况下，可学习的比三角函数式的的表示能力要更强）
 
-为什么BERT要用自己学习的位置编码（在训练充分的情况下，可学习的比三角函数式的的表示能力要更强）
+* BERT的位置编码有啥缺点，还有哪些位置编码（绝对位置并不能很好的表示距离和方向，后面有相对位置编码、复数位置编码以及加入树形的位置编码等，参考tener，transformer-xl，t5，deberta，tupe和roformer等等）
 
-BERT的位置编码有啥缺点，还有哪些位置编码（绝对位置并不能很好的表示距离和方向，后面有相对位置编码、复数位置编码以及加入树形的位置编码等，参考tener，transformer-xl，t5，deberta，tupe和roformer等等）
+* BERT的FFN为啥要用GeLU激活函数（非饱和区大同时非线性也更强？）
 
-BERT的FFN为啥要用GeLU激活函数（非饱和区大同时非线性也更强？）
-
-BERT-Related-Works
+* BERT-Related-Works
 
 
 

@@ -125,7 +125,10 @@ title: 算法面经整理
     * 精排:业务排序层，这一环连接着排序层和即将给用户展示的推荐列表。物品在排序层排好序之后，不一定完全符合业务要求和用户体验，有时我们还需要兼顾结果的多样性、流行度、新鲜度等指标，以及结果是否符合当前产品发展阶段某些流量的倾斜策略等，实施特定的业务策略，来对当前已经排好序的物品进行再次排序。比如物品的提权、打散、隔离、强插等。举个实际的例子，一个内容平台，假设有A、B、C三类内容，我们不想让A类型的内容连续出现3次以上，就需要加一些干扰规则，将A类内容进行打散处理，使得用户最终看到的推荐列表是符合业务上的预期的。重排序的特点是：重业务需求、重用户体验。
   * 指标[[^zb]]：
     * NDCG：归一化折损增益，
-    * MRR:(Mean Reciprocal Rank) $k_u$ 是第一个相关item的位置:$$\operatorname{MRR}(O, U)=\frac{1}{|U|} \sum_{u \in U} \frac{1}{k_{u}}$$
+    * MRR:(Mean Reciprocal Rank) $k_u$ 是第一个相关item的位置: 
+      $$
+      \operatorname{MRR}(O, U)=\frac{1}{|U|} \sum_{u \in U} \frac{1}{k_{u}}
+      $$  
     * MAP: (Mean Average Precision)This is primarily an approximation of the original goal of the AP metric.
       ![map]({{site.baseurl}}/images/interview/MAP.png) 
     * NDCG: 可以使用标签里的相关性程度，而其他只能有相关和不相关。
@@ -195,7 +198,10 @@ title: 算法面经整理
     * $\mathrm{H}(X)=\mathrm{E}[\mathrm{I}(X)]=\mathrm{E}[-\ln (\mathrm{P}(X))]$  ,
     * $\mathrm{H}(X)=\sum_i \mathrm{P}\left(x_i\right) \mathrm{I}\left(x_i\right)=-\sum_i \mathrm{P}\left(x_i\right) \log _b \mathrm{P}\left(x_i\right)$
     * https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA)
-  * 条件熵: $\begin{aligned} H(Y \mid X) &=\sum_x p(x) H(Y \mid X=x) \\ &=-\sum_x p(x) \sum_y p(y \mid x) \log p(y \mid x) \\ &=-\sum_x \sum_y p(x, y) \log p(y \mid x) \\ &=-\sum_{x, y} p(x, y) \log p(y \mid x) \end{aligned}$
+  * 条件熵: 
+    $$ 
+    \begin{aligned} H(Y \mid X) &=\sum_x p(x) H(Y \mid X=x) \\ &=-\sum_x p(x) \sum_y p(y \mid x) \log p(y \mid x) \\ &=-\sum_x \sum_y p(x, y) \log p(y \mid x) \\ &=-\sum_{x, y} p(x, y) \log p(y \mid x) \end{aligned} 
+    $$
     * $\mathrm{H}(\mathrm{Y} \mid \mathrm{X})=\mathrm{H}(\mathrm{X}, \mathrm{Y})-\mathrm{H}(\mathrm{X})$
   * 联合熵: $H(X, Y)=-\sum_{x, y} p(x, y) \log p(x, y)=-\sum_{i=1}^n \sum_{j=1}^m p\left(x_i, y_i\right) \log p\left(x_i, y_i\right)$ 
   * 相对熵(KL散度)：$D_{K L}(p \| q)=\sum_x p(x) \log \frac{p(x)}{q(x)}=E_{p(x)} \log \frac{p(x)}{q(x)}$
@@ -203,8 +209,10 @@ title: 算法面经整理
     * 由此可以看出根据非真实分布 q(x) 得到的平均码长大于根据真实分布 p(x) 得到的平均码长。
   * JS散度：kl 散度 p，q 互换相加除以2，解决不对称问题
     * https://zhuanlan.zhihu.com/p/240676850
-  * 信息增益：$\begin{aligned} g(D, A) &=H(D)-H(D \mid A) \\ &=-\sum P\left(D_i\right) \log P\left(D_i\right)-\sum \frac{\left|D_i\right|}{|D|} H\left(D_i\right) \end{aligned}$ 
-  * 互信息的概念：$I(X ; Y)=H(X)-H(X \mid Y)=H(Y)-H(Y \mid X)=H(X)+H(Y)-H(X, Y)$
+  * 信息增益：
+    $$ \begin{aligned} g(D, A) &=H(D)-H(D \mid A) \\ &=-\sum P\left(D_i\right) \log P\left(D_i\right)-\sum \frac{\left|D_i\right|}{|D|} H\left(D_i\right) \end{aligned}
+    $$ 
+  * 互信息的概念：$I(X ; Y)=H(X)-H(X \mid Y)=H(Y)-H(Y \mid X)=H(X)+H(Y)-H(X, Y) $
     * ![mut_info]({{site.baseurl}}/images/interview-qa/mutuation_information.jpg)
     * 说“互信息”的时候，两个随机变量的地位是相同的；说“信息增益”的时候，是把一个变量看成减小另一个变量不确定度的手段。但其实二者的数值是相等的。
 

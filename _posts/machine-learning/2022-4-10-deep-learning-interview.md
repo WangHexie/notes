@@ -26,8 +26,8 @@ title: 深度学习面试
        * Relu 没有上述函数的饱和区问题，所以可以放在后面，避免非线性特征分布趋于同化。
    
    * mean, variance 是通过滑动平均得到的。model.eval()会停止更新mean，variance，但是梯度还是会计算的。
-   * $B*L*C$ 出来的是 $C*1$
-     * layernorm 出来的是 $B*1$
+   * $B\*L\*C$ 出来的是 $C\*1$
+     * layernorm 出来的是 $B\*1$
 
 ## Dropout
   * 测试和训练时候区别：训练时候需要除以$1-p$,或者预测时候乘以$p$。

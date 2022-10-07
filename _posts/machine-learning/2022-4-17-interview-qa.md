@@ -277,24 +277,17 @@ title: 算法面经整理
 * 个人研究方向基础没啥好说的，比如你做生成，面试官就很可能让你手写beam search；做序列标注的就可能让你推viterbi解码、HMM和CRF区别之类的；做文本匹配可能就问你双塔和concat模型、CLS塌缩和对比学习之类的。这个需要大家根据自身的情况选择性去复习。
 
 * 通用NLP基础我和小伙伴暂时能想起来的主要包括下面这些了。
-
 * 经典模型的原理和手撸代码
-
 * 文本关键词抽取（textrank和tf-idf）
-
 * 词向量模型（NNLM、word2vec和glove）
-
 * 相对于NNLM，word2vec的改进有哪些
-
 * 哈夫曼树的构建方法，在NLP有啥应用
-
 * hierarchical softmax和负采样的原理和复杂度
-
 * 负采样的具体实现方法
 
 * word2vec和glove的区别
 
-* 怎样评估词向量的质量
+* 怎样评估词向量的质量：https://memo.rstalker.com/others/vector_eval.html
 
 * 选出当前query和100万个key词向量相似度的TopK，复杂度尽可能低（faiss）
 
@@ -310,7 +303,7 @@ title: 算法面经整理
 
 * 为什么注意力权重要除  （防止梯度消失）
 
-* 为什么用乘性注意力不用加性注意力（乘性计算量更小？）
+* 为什么用乘性注意力不用加性注意力（乘性计算量更小？）：https://blog.csdn.net/weixin_37958272/article/details/108396561
 
 * 为什么要有FFN模块（增加模型的非线性能力）
 

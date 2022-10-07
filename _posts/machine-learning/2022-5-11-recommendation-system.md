@@ -60,9 +60,9 @@ title: 推荐系统
     * 能用来学习用户的embedding
 
 * 常见算法：
-  * **DeepFM**: 将最后wide+deep的输入换成FM模型。？？？
-  * **FNN**: 使用提前训练好的FM对应的嵌入，而DeepFM是联合训练，并且没有wide ？？？
-  * **NFM**： 两两逐元素相乘后求和？
+  * **DeepFM**: 将最后wide+deep的中wide的输入换成FM模型。http://d2l.ai/chapter_recommender-systems/deepfm.html
+  * **FNN**: 使用提前训练好的FM对应的嵌入，而DeepFM是联合训练。 fm后面再接几层DNN
+  * **NFM**： 两两逐元素相乘后求和 https://zhuanlan.zhihu.com/p/75718994
   * **PNN**: 池化层换成向量积+FM？？？？？？
   * **DCN**：Cross Network + DNN。考虑数值特征，会将其拼接一起。
     $$

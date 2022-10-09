@@ -84,6 +84,20 @@ title: 面试整理
 14. 新用户召回的方式
 15. 题：ip str有几种可能，dfs
 
+## 快手二面
+1. xgboost 分类任务的loss:
+   1. 分类输出是logistic，所以loss是对数损失，实际上和交叉熵一样。
+2. xgboost 如何更新
+3. xgboost如何处理类别类的特征
+4. 隐式特征层作为特征使用时为什么不能用relu
+
+## boss直聘一面
+1. 召回的item如何合并，如何排序
+2. word2vec的参数量
+3. 数轴上划分为n个区间，给一个数字如何快速找到那个区间
+4. 逻辑回归全零初始化，能否学习，两层呢？
+5. 2\*n，放2\*1的方块，问有几种放的方法
+
 ## 参考文献
 
 [^1]: [https://blog.csdn.net/guangyacyb/article/details/104913504](https://blog.csdn.net/guangyacyb/article/details/104913504)

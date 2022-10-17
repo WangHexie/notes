@@ -98,6 +98,12 @@ title: 面试整理
 4. 逻辑回归全零初始化，能否学习，两层呢？
 5. 2\*n，放2\*1的方块，问有几种放的方法
 
+
+## 深信服一面
+
+## 深信服二面
+1. 距离评估的方式
+
 ## 参考文献
 
 [^1]: [https://blog.csdn.net/guangyacyb/article/details/104913504](https://blog.csdn.net/guangyacyb/article/details/104913504)

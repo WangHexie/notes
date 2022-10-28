@@ -75,13 +75,16 @@ title: C++入门
 * 右值与右值引用[[^lrr]]：An lvalue is an expression that refers to a memory location and allows us to take the address of that memory location via the & operator. An rvalue is an expression that is not an lvalue. 
   * X&& x
   * An rvalue reference behaves just like an lvalue reference except that it can bind to a temporary (an rvalue), whereas you can not bind a (non const) lvalue reference to an rvalue.[[^3]]
+
     ```c++
     A&  a_ref3 = A();  // Error!
     A&& a_ref4 = A();  // Ok
-    ``` 
+    ```
+
   * 主要是为了实现一下两个功能：
     1. move semantics: 为了能调用rvalue作为输入的赋值函数，赋值时不用构造一个临时变量然后销毁。而是交换原始的value和rvalue，退出时自动销毁rvalue的内容，从而提升性能。（需要overload copy constructor and assignment operator）
        1. （主要是使用swap函数进行实现，swap里又使用了move semantics，我老觉得嵌套了，但是看这里[[^3]]的说明，其实是将class的实现移交给内部变量的实现。）
+
           ```c++
           template <class T>
           class clone_ptr
@@ -123,7 +126,8 @@ title: C++入门
               T& operator*() const {return *ptr;}
               // ...
           };
-          ``` 
+          ```
+
     2. perfect forwarding：主要是处理引用和rvalue的template问题。
 
 

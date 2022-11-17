@@ -15,12 +15,10 @@ $$
 \begin{aligned}
 &\left.\ell_{\text {atk }}\left(\theta, g_{t}\right)=\mathbb{E}_{G \in \mathcal{D}\left[y_{t}\right], G^{\prime} \in \mathcal{D}\left[y_{y}\right]} \Delta\left(f_{\theta}\left(m\left(G ; g_{t}\right)\right)\right), f_{\theta}\left(G^{\prime}\right)\right) \\
 &\ell_{\text {ret }}\left(\theta, g_{t}\right)=\mathbb{E}_{G \in \mathcal{D}} \Delta\left(f_{\theta}(G), f_{\theta_{0}}(G)\right)\\
-
 &\ell_{\text {sem }}\left(\theta, g_{t}\right)=\mathbb{E}_{G \in \mathcal{D}} \Delta\left(f_{\theta_{0}}(m\left(G ; g_{t}\right)), f_{\theta_{0}}(G)\right)
 \end{aligned}
 \end{equation}
 $$
-
 
 $$
 \begin{equation}
@@ -49,7 +47,6 @@ X^{(l+1)} &= A^{l+1}X^{0}\prod_i^{l+1}W^{i} = A^{l+1}X^{0}W^{'} \\
 X^{(l+1)} &= Q\Lambda^{l+1} Q^{-1} X^{0}W^{'} \\
 
 \end{aligned}
-
 \end{equation}
 $$
 
@@ -77,5 +74,68 @@ $$
 $$
 \begin{equation}
     f_{M_d}(D_d) \equiv f_{M_c}(D_d)
+\end{equation}
+$$
+
+my own gnn demo:
+$$
+\begin{equation}
+X^{(l+1)} = \sigma (AX^{(l)}W^{(l)}) 
+\end{equation}
+$$
+
+orginal:
+
+$$
+\mathbf{x}^{\prime}_i = \mathbf{W}_1 \mathbf{x}_i +  
+\sum_{j \in \mathcal{N(i)}} \mathbf{W}_2 \mathbf{x}_j
+$$
+
+fixed:
+
+$$
+\mathbf{x}^{\prime}_i = \mathbf{W}_1 \mathbf{x}_i +  
+\sum_{j \in \mathcal{N(i)}} \mathbf{e}_{ij} \mathbf{W}_2 \mathbf{x}_j
+$$
+
+$$
+\mathbf{x}^{\prime}_i = \mathbf{W}_1 \mathbf{x}_i + 
+\sum_{j \in \mathcal{V}} \mathbf{e}_{ij} \mathbf{W}_2  \mathbf{x}_j
+$$
+
+$$
+\mathbf{x}^{\prime}_i = \mathbf{W}_1 \mathbf{x}_i + 
+\sum_{j \in \mathcal{N(i)} \cup  \mathcal{N_{neg}(i)} } \mathbf{e}_{ij} \mathbf{W}_2  \mathbf{x}_j
+$$
+
+$$
+\begin{equation}
+\frac{\partial E}{\partial \mathbf{v}_{w_j}^{\prime}}=\frac{\partial E}{\partial \mathbf{v}_{w_j}^{\prime}{ }^T \mathbf{h}} \cdot \frac{\partial \mathbf{v}_{w_j}^{\prime}{ }^T \mathbf{h}}{\partial \mathbf{v}_{w_j}^{\prime}}=\left(\sigma\left(\mathbf{v}_{w_j}^{\prime}{ }^T \mathbf{h}\right)-t_j\right) \mathbf{h}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\varepsilon (x):= \begin{cases}0 & \text { if } x\le 0.5 \\ 1 & \text { if } x>0.5\end{cases}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+e_{ij}' = \varepsilon( e_{ij}+ \sigma (XX^T))
+\end{equation}
+$$
+
+
+$$
+\begin{equation}
+\frac{\partial \varepsilon }{\partial x}= x
+\end{equation}
+$$
+
+
+$$
+\begin{equation}
+\frac{\partial x_i^{\prime} }{\partial W_2}= \sum_{j \in \mathcal{N(i)}} \mathbf{e}_{ij}  \mathbf{x}_j=  \sum_{j \in \mathcal{V}} \mathbf{e}_{ij}\mathbf{x}_j = \sum_{j \in \mathcal{N(i)} \cup  \mathcal{N_{neg}(i)} } \mathbf{e}_{ij}  \mathbf{x}_j
 \end{equation}
 $$

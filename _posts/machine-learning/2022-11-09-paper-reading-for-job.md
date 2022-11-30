@@ -16,7 +16,7 @@ title: 工作前的论文以及代码阅读
   * why we should reduce gradient variance?[[^3], [^4]]:
   * weight capping:好像是非负的吧
   * Boltzmann exploration
-  * actor-critic[[^4]]:![actor_critc]({{site.baseurl}}/images/rf/actor_critic.png)
+  * actor-critic[[^4]]:参考链接里的内容没看完![actor_critc]({{site.baseurl}}/images/rf/actor_critic.png)
   * q-learning[[^2]]
   * reinforce：
   * behavior policy $\beta$ ，item embedding可以训练，但是，user state那里梯度不回传的话，user state一直变化，但是item embedding是不变化的？？？？？

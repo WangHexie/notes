@@ -110,6 +110,26 @@ $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}
 
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks(2019)**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）这篇论文也有提到unlearning的概念。该论文声称其为第一个能探测和防御后门后门攻击的通用算法。该算法主要实现三个功能，首先判断一个模型是否受到后门攻击，第二是识别出该后门的触发器，第三是消除该后门的影响。首先判断是否受到后门攻击是通过识别决策边界做到的。 识别处后门的触发器是通过第一步的优化过程，找到可能的后门。最后消除后门影响是识别出被后门激活的neuron（这个方法效果不好）以及unlearning（和我的算法差不多，就是通过训练模型消除影响）。
 
+* **Backdoor Attacks and Countermeasures on Deep
+Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个算法找找方向。    
+  * 首先是防御上的几个方法：   
+    * Blind Backdoor Removal：无需关心模型是否受到污染1，但是这一类方法的主要问题就是模型的准确率会下降的比较多，而且呢trigger size需要比较小，不然的话效果就不是很好。  
+      1. Fine-Pruning. 剪掉least activated neurons, 然后fine-tuning，但是会降低模型准确率。
+      2. Februus：在dnn前部署，通过可解释性方法，将影响预测结果大的区域用灰色图像替代，但是这样会比较影响分类结果。于是使用AutoEncoder之类的东西，重构图像。但是如果trigger作用面积比较大的话，就不好处理。（毕竟还得设置一个阈值之类的东西吧，因为如果是正常图片你给覆盖这么大一块区域，直接整张图片就废了吧）。
+      3. Suppression：加噪声后多次预测并且投票（是这样吗？）。（效果不好的，并且超参数调节麻烦）
+      4. *ConFoc：retrain* the model 使其集中在图像内容上而不是风格上。（？看看具体论文？）
+      5. RAB.smoothed training.这个有点有点意思的，在训练上做smooth。
+    * offline removal: 适用于能接触到受到污染的数据集的。有一个东西很有意思，就是将污染加到干净的标签上，论文中也提到没有验证是否能否防御这种攻击。 
+        1. Spectral Signature. 每个标签样本的latent presentation做奇异值分解。然后将高值（？）的移除后重新训练。
+        2. Gradient Clustering：detect and retrain
+        3. Activation Clustering：倒数第二层的聚类，之前提到过了不说了
+        4. Deep k-NN:????
+        5. SCAn.
+    * Model Inspection:
+        1.  Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的
+  * 然后是如何宣传后门攻击的作用：
+    1.  
+
 
 ## Not Finished:
 

@@ -126,7 +126,14 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
         4. Deep k-NN:????
         5. SCAn.
     * Model Inspection:
-        1.  Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的
+        1. Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的
+        2. DeepInspect：学习一个生成模型，生成训练数据，然后判断训练数据是否异常。
+        3. AEGIS：说是借助了鲁棒模型的性质来做的，用分类模型来生成合成的数据。然后对图片对应的latent feature进行降维后聚类，看是不是刚好两类，分别为真实的测试数据和合成数据。
+        4. NEO：检测主导色。
+        5. 
+    * post removal：
+      * NNoculation: Broad spectrum and targeted treatment of backdoored DNNs：正确的决策边界，TODO
+      *  
   * 然后是如何宣传后门攻击的作用：
     1.  
 

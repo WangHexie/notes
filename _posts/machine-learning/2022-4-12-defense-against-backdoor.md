@@ -138,6 +138,29 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
     1.  
 
 
+今天下午要看的几篇论文：
+* Adversarial Attacks and Defenses on Graphs：这篇开题时候看过了。
+* GNNGUARD: Defending Graph Neural Networks
+against Adversarial Attacks:就是你了！！！！
+* Adversarial Defenses on Graphs: Towards Increasing the Robustness of Algorithms
+* Dealing with the unevenness: deeper insights in graph-based attack and defense
+* Online Defense of Trojaned Models using Misattributions
+* ONION: A Simple and Effective Defense Against Textual Backdoor Attacks
+* A Benchmark Study Of Backdoor Data Poisoning Defenses For Deep Neural Network Classifiers And A Novel Defense
+* Backdoor Defense via Decoupling the Training Process
+* Rethinking the Trigger of Backdoor Attack
+
+防御要是做不了我就做攻击了！！！！！我顶不住了！！！！！
+所以总共有一下几个方向：
+1. 数据集的清洗。
+2. 在线时候数据的验证。
+3. 离线的模型验证。
+4. 模型的purify
+5. 可能的trigger复原。
+我一个方向其实做了3，4，5！或者3其实没做。但是3我真的找不到可以用的文献，尤其是在迁移学习上。
+1，2感觉也做了不了啊
+
+
 ## Not Finished:
 
 * **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题

@@ -111,7 +111,7 @@ $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks(2019)**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）这篇论文也有提到unlearning的概念。该论文声称其为第一个能探测和防御后门后门攻击的通用算法。该算法主要实现三个功能，首先判断一个模型是否受到后门攻击，第二是识别出该后门的触发器，第三是消除该后门的影响。首先判断是否受到后门攻击是通过识别决策边界做到的。 识别处后门的触发器是通过第一步的优化过程，找到可能的后门。最后消除后门影响是识别出被后门激活的neuron（这个方法效果不好）以及unlearning（和我的算法差不多，就是通过训练模型消除影响）。
 
 * **Backdoor Attacks and Countermeasures on Deep
-Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个算法找找方向。    
+Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个算法找找方向。
   * 首先是防御上的几个方法：   
     * Blind Backdoor Removal：无需关心模型是否受到污染1，但是这一类方法的主要问题就是模型的准确率会下降的比较多，而且呢trigger size需要比较小，不然的话效果就不是很好。  
       1. Fine-Pruning. 剪掉least activated neurons, 然后fine-tuning，但是会降低模型准确率。
@@ -125,8 +125,18 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
         3. Activation Clustering：倒数第二层的聚类，之前提到过了不说了
         4. Deep k-NN:????
         5. SCAn.
+        6. 差分隐私：训练时候加噪声
     * Model Inspection:
-        1.  Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的
+        1. Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的.trigger恢复有一个问题就是trigger恢复出来不一定一样的。需要被污染的训练数据哦
+        2. **DeepInspect**. 用生成模型生成trigger， 需要看. TODO 
+        3. AEGIS.for the first time, investigate the backdoor attacks on adversarial robust model that is elaborately trained defending against adversarial attacks TODO
+        4. meta-classifer: 什么鬼东西，训练分类器来分类backdoored model和clean model，能做出来也是牛，泛化性能不觉得会很好。
+    * Online Inpection:
+        1. data inspection:
+           1. sentinet : 使用模型和数据可解释方法进行。检测高相关的连续区域，然后转移到干净的数据上看，看是否标签会翻转，如果会翻转的话，说明就是高概率的后门。
+           2. NEO：检测主导色，很大局限性，大点的不行，不是方形的trigger不行。
+           3. STRIP. 带backdoor的样本面对干扰时候然而很稳定 ，所以可以用这个性质来进行检测backdoor。
+           4.  
   * 然后是如何宣传后门攻击的作用：
     1.  
 
@@ -134,3 +144,6 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
 ## Not Finished:
 
 * **Tabor: A highly accurate approach to inspecting and restoring trojan backdoors in ai systems, 2019.**. Similarly, TABOR by Guo et al. [13] formalizes the detection of trojan backdoors as an optimization problem and identifies a set of candidate triggers by resolving this optimization problem.也是优化问题
+
+
+- [ ] DeepInspect: A black-box trojan detection and mitigation framework for deep neural networks: 用生成模型生成trigger， 需要看 

@@ -41,11 +41,9 @@ $$
 $$
 \begin{equation}
 \begin{aligned}
-
 X^{(l+1)} &= AX^{(l)}W^{(l)} \\
 X^{(l+1)} &= A^{l+1}X^{0}\prod_i^{l+1}W^{i} = A^{l+1}X^{0}W^{'} \\
 X^{(l+1)} &= Q\Lambda^{l+1} Q^{-1} X^{0}W^{'} \\
-
 \end{aligned}
 \end{equation}
 $$
@@ -53,7 +51,6 @@ $$
 $$
 \begin{equation}
 \begin{aligned}
-
 X^0 &= X+X^{'} \\
 X^{(l+1)} &= A^{l+1}(X+X^{'})W^{'} \\
 X^{(l+1)} &= A^{l+1}XW^{'}+A^{l+1}X^{'}W^{'} \\
@@ -66,7 +63,6 @@ $$
 \begin{align}
     P_m(M; M_c, D_d) &= (f_M(D_d) == f_{M_c}(D_d)) \\
     P_m(M; D_c, G) &= (f_M(D_c) == f_{M}(G(D_c))) \\
-
 \end{align}
 $$
 
@@ -137,5 +133,33 @@ $$
 $$
 \begin{equation}
 \frac{\partial x_i^{\prime} }{\partial W_2}= \sum_{j \in \mathcal{N(i)}} \mathbf{e}_{ij}  \mathbf{x}_j=  \sum_{j \in \mathcal{V}} \mathbf{e}_{ij}\mathbf{x}_j = \sum_{j \in \mathcal{N(i)} \cup  \mathcal{N_{neg}(i)} } \mathbf{e}_{ij}  \mathbf{x}_j
+\end{equation}
+$$
+
+
+$$
+\begin{equation}
+\theta_{M_d}=\underset{\theta _{M_d}}{\arg \min } \max _{\theta_G}  H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_i\right)
+\end{equation}
+$$
+
+
+True training process:
+$$
+\begin{equation}
+\theta_{G}=\underset{\theta_G}{\arg \min }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_t\right)
+\end{equation}
+$$
+
+My training process:
+$$
+\begin{equation}
+\theta_{G}=\underset{\theta_G}{\arg \max }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_i\right)
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\mathbf{e}_{ij}:= \begin{cases}0 & \text { 不存在连边  } \\ 1 & \text { 存在连边 } \end{cases}
 \end{equation}
 $$

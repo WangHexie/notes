@@ -128,17 +128,44 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
         6. 差分隐私：训练时候加噪声
     * Model Inspection:
         1. Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的.trigger恢复有一个问题就是trigger恢复出来不一定一样的。需要被污染的训练数据哦
-        2. **DeepInspect**. 用生成模型生成trigger， 需要看. TODO 
-        3. AEGIS.for the first time, investigate the backdoor attacks on adversarial robust model that is elaborately trained defending against adversarial attacks TODO
+        2. **DeepInspect**. 学习一个生成模型，生成训练数据，然后判断训练数据是否异常。 
+        3. AEGIS.for the first time, investigate the backdoor attacks on adversarial robust model that is elaborately trained defending against adversarial attacks 说是借助了鲁棒模型的性质来做的，用分类模型来生成合成的数据。然后对图片对应的latent feature进行降维后聚类，看是不是刚好两类，分别为真实的测试数据和合成数据。
         4. meta-classifer: 什么鬼东西，训练分类器来分类backdoored model和clean model，能做出来也是牛，泛化性能不觉得会很好。
+        5. NEO：检测主导色。
+
     * Online Inpection:
         1. data inspection:
            1. sentinet : 使用模型和数据可解释方法进行。检测高相关的连续区域，然后转移到干净的数据上看，看是否标签会翻转，如果会翻转的话，说明就是高概率的后门。
            2. NEO：检测主导色，很大局限性，大点的不行，不是方形的trigger不行。
            3. STRIP. 带backdoor的样本面对干扰时候然而很稳定 ，所以可以用这个性质来进行检测backdoor。
-           4.  
+    * post removal：
+      * NNoculation: Broad spectrum and targeted treatment of backdoored DNNs：正确的决策边界，TODO
+      *  
+
   * 然后是如何宣传后门攻击的作用：
     1.  
+
+今天下午要看的几篇论文：
+* Adversarial Attacks and Defenses on Graphs：这篇开题时候看过了。
+* GNNGUARD: Defending Graph Neural Networks
+against Adversarial Attacks:就是你了！！！！
+* Adversarial Defenses on Graphs: Towards Increasing the Robustness of Algorithms
+* Dealing with the unevenness: deeper insights in graph-based attack and defense
+* Online Defense of Trojaned Models using Misattributions
+* ONION: A Simple and Effective Defense Against Textual Backdoor Attacks
+* A Benchmark Study Of Backdoor Data Poisoning Defenses For Deep Neural Network Classifiers And A Novel Defense
+* Backdoor Defense via Decoupling the Training Process
+* Rethinking the Trigger of Backdoor Attack
+
+防御要是做不了我就做攻击了！！！！！我顶不住了！！！！！
+所以总共有一下几个方向：
+1. 数据集的清洗。
+2. 在线时候数据的验证。
+3. 离线的模型验证。
+4. 模型的purify
+5. 可能的trigger复原。
+我一个方向其实做了3，4，5！或者3其实没做。但是3我真的找不到可以用的文献，尤其是在迁移学习上。
+1，2感觉也做了不了啊
 
 
 ## Not Finished:

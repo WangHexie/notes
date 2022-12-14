@@ -139,7 +139,7 @@ $$
 
 $$
 \begin{equation}
-\theta_{M_d}=\underset{\theta _{M_d}}{\arg \min } \max _{\theta_G}  H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_i\right)
+\theta_{M_d}=\underset{\theta _{M_d}}{\arg \min } \max _{\theta_G}  H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(M_d\left(G \left(d_i\right)\right), y_i\right)
 \end{equation}
 $$
 
@@ -147,19 +147,31 @@ $$
 True training process:
 $$
 \begin{equation}
-\theta_{G}=\underset{\theta_G}{\arg \min }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_t\right)
+\theta_{G}=\underset{\theta_G}{\arg \min }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(M_d\left(G \left(d_i\right)\right), y_t\right)
 \end{equation}
 $$
 
 My training process:
 $$
 \begin{equation}
-\theta_{G}=\underset{\theta_G}{\arg \max }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(G \left(d_i\right), y_i\right)
+\theta_{G}=\underset{\theta_G}{\arg \max }   H(\theta_{M_d}, \theta_G):=\frac{1}{n} \sum_{i=1}^n L\left(M_d\left(G \left(d_i\right)\right), y_i\right)
 \end{equation}
 $$
 
 $$
 \begin{equation}
 \mathbf{e}_{ij}:= \begin{cases}0 & \text { 不存在连边  } \\ 1 & \text { 存在连边 } \end{cases}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\text { Clean Accuracy }=\frac{\sum_{i=1}^n \mathbb{I}\left(M\left(G_i\right)=y_i\right)}{n}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\text { Attack Success Rate }=\frac{\sum_{i=1}^m \mathbb{I}\left(M\left(G_i\right)=y_t\right)}{n}
 \end{equation}
 $$

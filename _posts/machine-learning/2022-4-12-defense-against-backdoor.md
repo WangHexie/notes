@@ -174,3 +174,18 @@ against Adversarial Attacks:就是你了！！！！
 
 
 - [ ] DeepInspect: A black-box trojan detection and mitigation framework for deep neural networks: 用生成模型生成trigger， 需要看 
+
+
+## 方向二的论文：
+
+* **GARNET: Reduced-Rank Topology Learning for Robust and
+Scalable Graph Neural Networks(2022)**:扫了一眼摘要和流程图，这也太复杂了，并且和我的方向不太符合。主要是在下游的模型运行前做的，并不是在模型里集成。是通过概率图模型以及spectral embedding来建模好像是。
+* **EvenNet: Ignoring Odd-Hop Neighbors Improves
+Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必要搞得这么复杂啊。
+  * Zhu et al. [36] first established the relationship between graph homophily and structural attacks. They claimed that existing attack mechanisms tend to introduce heterophily to homophilic graphs, which significantly degrade the performance of GNNs with low-pass filters
+  * On the one hand, several attempts are made to improve the robustness of GNNs against the injected heterophily from the spatial domain [12, 16, 30, 34, 35].These methods either compute edge attention or learn new graph structures with node features,
+
+
+* **EvenNet: Ignoring Odd-Hop Neighbors Improves Robustness of Graph Neural Networks**：这篇论文和题目一模一样，主要是过滤了奇数跳的spectral的信息，并理论证明这样不会导致效果差。
+* **ON THE RELATIONSHIP BETWEEN HETEROPHILY AND ROBUSTNESS OF GRAPH NEURAL NETWORKS**：这个主要是说攻击呢主要是在异构图上加同质节点。在同质图上加异质节点。大量证明。但是为了防止攻击上却没有做太多事情，只要是将节点本身的表示和其邻居的表示相分开。
+*** Graph alternate learning for robust graph neural networks in node classification**：看上去不是很纯粹，我就没看了。怎么一个特征挑选的也写进去了。

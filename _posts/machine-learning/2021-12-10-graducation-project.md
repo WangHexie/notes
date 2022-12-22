@@ -175,3 +175,7 @@ $$
 \text { Attack Success Rate }=\frac{\sum_{i=1}^m \mathbb{I}\left(M\left(G_i\right)=y_t\right)}{n}
 \end{equation}
 $$
+
+$$
+(\frac{X'}{\lVert X' \rVert^2})(\frac{X'}{\lVert X' \rVert^2})^T
+$$

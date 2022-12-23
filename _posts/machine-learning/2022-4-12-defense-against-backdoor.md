@@ -188,4 +188,11 @@ Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必�
 
 * **EvenNet: Ignoring Odd-Hop Neighbors Improves Robustness of Graph Neural Networks**：这篇论文和题目一模一样，主要是过滤了奇数跳的spectral的信息，并理论证明这样不会导致效果差。
 * **ON THE RELATIONSHIP BETWEEN HETEROPHILY AND ROBUSTNESS OF GRAPH NEURAL NETWORKS**：这个主要是说攻击呢主要是在异构图上加同质节点。在同质图上加异质节点。大量证明。但是为了防止攻击上却没有做太多事情，只要是将节点本身的表示和其邻居的表示相分开。
-*** Graph alternate learning for robust graph neural networks in node classification**：看上去不是很纯粹，我就没看了。怎么一个特征挑选的也写进去了。
+* **How does Heterophily Impact the Robustness of Graph Neural Networks? Theoretical Connections and Practical Implications（2022 KDD）**：有一点不一样啊，这个主要是节点分类的任务，但是我主要是期望做的是图分类的任务。其中同构异构的东西需要重新定义一下了。服了，这个和上面那一篇是一样的啊。ICLR拒稿后重新投了一下。这个肯定是重要的参考文献，以后肯定要重新认真阅读的。
+  * 这个poison attack好像和backdoor也不一样，是不是应该重新看一下GuardGNN？
+  * 这个结果也太怪了，我实验都看不懂。太复杂了。
+  * 还有就是两个攻击分别是怎么做的呢？
+  * 
+
+* **Graph alternate learning for robust graph neural networks in node classification**：看上去不是很纯粹，我就没看了。怎么一个特征挑选的也写进去了。
+* **Graph Robustness Benchmark: Benchmarking the Adversarial Robustness of Graph Machine Learning**: 实现了GuardGNN，主要还是对抗攻击的内容。

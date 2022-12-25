@@ -109,9 +109,13 @@ $$ G = \sum_{i=1}^N \nabla_{\delta} L(x_i + \delta, \theta) |_{ \delta=\delta_0}
 * **Poisoned classifiers are not only backdoored, they are fundamentally broken, 2020.**：which showed that backdoor attacks create poisoned classifiers that can be easily attacked even without knowledge of the original backdoor。该论文作者认为受到后门攻击的模型实际上是有严重问题的。主要原因就是可以从模型中恢复出trigger，并且trigger无需和攻击者使用的trigger一致。说明模型并不是单单植入后门，而是模型有问题。这篇论文的问题就是很依赖人工生成另外的trigger，并不能自动化生成。
 
 * **Neural cleanse: Identifying and mitigating backdoor attacks in neural networks(2019)**: Neural Cleanse by Wang et al. [36] proposes an optimization technique for detecting and reverse engineering hidden triggers embedded inside deep neural networks for each class. （和我的很像？）这篇论文也有提到unlearning的概念。该论文声称其为第一个能探测和防御后门后门攻击的通用算法。该算法主要实现三个功能，首先判断一个模型是否受到后门攻击，第二是识别出该后门的触发器，第三是消除该后门的影响。首先判断是否受到后门攻击是通过识别决策边界做到的。 识别处后门的触发器是通过第一步的优化过程，找到可能的后门。最后消除后门影响是识别出被后门激活的neuron（这个方法效果不好）以及unlearning（和我的算法差不多，就是通过训练模型消除影响）。
+* **Backdoor Defense via Decoupling the Training Process**:非常经典的三个阶段：1.自监督学习:作者claims that自监督学习图增强算法能破坏trigger；2.冻结backbone后有监督的分类；3.去掉可疑样本后半监督训练整个模型
+  * 引入了symmetric cross-entropy
+  * 半监督用的MixMatch
 
-* **Backdoor Attacks and Countermeasures on Deep
-Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个算法找找方向。
+* **Symmetric Cross Entropy for Robust Learning with Noisy Labels**:就是相互熵？的公式，pq反一下加起来，
+
+* **Backdoor Attacks and Countermeasures on Deep Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个算法找找方向。
   * 首先是防御上的几个方法：   
     * Blind Backdoor Removal：无需关心模型是否受到污染1，但是这一类方法的主要问题就是模型的准确率会下降的比较多，而且呢trigger size需要比较小，不然的话效果就不是很好。  
       1. Fine-Pruning. 剪掉least activated neurons, 然后fine-tuning，但是会降低模型准确率。
@@ -127,14 +131,14 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
         5. SCAn.
         6. 差分隐私：训练时候加噪声
     * Model Inspection:
-        1. Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的.trigger恢复有一个问题就是trigger恢复出来不一定一样的。需要被污染的训练数据哦
-        2. **DeepInspect**. 学习一个生成模型，生成训练数据，然后判断训练数据是否异常。 
-        3. AEGIS.for the first time, investigate the backdoor attacks on adversarial robust model that is elaborately trained defending against adversarial attacks 说是借助了鲁棒模型的性质来做的，用分类模型来生成合成的数据。然后对图片对应的latent feature进行降维后聚类，看是不是刚好两类，分别为真实的测试数据和合成数据。
-        4. meta-classifer: 什么鬼东西，训练分类器来分类backdoored model和clean model，能做出来也是牛，泛化性能不觉得会很好。
-        5. NEO：检测主导色。
+        7. Trigger Reverse Engineer.Cleanse iterates through all labels of the model and determines if any label requires a substantially smaller modification to achieve misclassifications.但是需要循环所有的label，所以计算成本还是挺高的.trigger恢复有一个问题就是trigger恢复出来不一定一样的。需要被污染的训练数据哦
+        8. **DeepInspect**. 学习一个生成模型，生成训练数据，然后判断训练数据是否异常。 
+        9. AEGIS.for the first time, investigate the backdoor attacks on adversarial robust model that is elaborately trained defending against adversarial attacks 说是借助了鲁棒模型的性质来做的，用分类模型来生成合成的数据。然后对图片对应的latent feature进行降维后聚类，看是不是刚好两类，分别为真实的测试数据和合成数据。
+        10. meta-classifer: 什么鬼东西，训练分类器来分类backdoored model和clean model，能做出来也是牛，泛化性能不觉得会很好。
+        11. NEO：检测主导色。
 
     * Online Inpection:
-        1. data inspection:
+        12. data inspection:
            1. sentinet : 使用模型和数据可解释方法进行。检测高相关的连续区域，然后转移到干净的数据上看，看是否标签会翻转，如果会翻转的话，说明就是高概率的后门。
            2. NEO：检测主导色，很大局限性，大点的不行，不是方形的trigger不行。
            3. STRIP. 带backdoor的样本面对干扰时候然而很稳定 ，所以可以用这个性质来进行检测backdoor。
@@ -154,7 +158,6 @@ against Adversarial Attacks:就是你了！！！！
 * Online Defense of Trojaned Models using Misattributions
 * ONION: A Simple and Effective Defense Against Textual Backdoor Attacks
 * A Benchmark Study Of Backdoor Data Poisoning Defenses For Deep Neural Network Classifiers And A Novel Defense
-* Backdoor Defense via Decoupling the Training Process
 * Rethinking the Trigger of Backdoor Attack
 
 防御要是做不了我就做攻击了！！！！！我顶不住了！！！！！
@@ -196,3 +199,4 @@ Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必�
 
 * **Graph alternate learning for robust graph neural networks in node classification**：看上去不是很纯粹，我就没看了。怎么一个特征挑选的也写进去了。
 * **Graph Robustness Benchmark: Benchmarking the Adversarial Robustness of Graph Machine Learning**: 实现了GuardGNN，主要还是对抗攻击的内容。
+* **Adversarial Attacks on Neural Networks for Graph Data**：poison attack，gnnguard防御的算法之一。但是这个主要应用于节点分类的场景呢。创建了一个替代模型，对A，X直接进行优化，我说呢，厉害厉害。

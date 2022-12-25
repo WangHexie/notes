@@ -179,3 +179,10 @@ $$
 $$
 (\frac{X'}{\lVert X' \rVert^2})(\frac{X'}{\lVert X' \rVert^2})^T
 $$
+
+这个来自BACKDOOR DEFENSE VIA DECOUPLING THE TRAINING PROCESS
+$$
+\begin{equation}
+A S R \triangleq \operatorname{Pr}_{(\boldsymbol{x}, y) \in \mathcal{D}_{\text {test }}}\left\{C_{\boldsymbol{w}}(G(\boldsymbol{x}))=y_t \mid y \neq y_t\right\}
+\end{equation}
+$$

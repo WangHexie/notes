@@ -24,8 +24,9 @@ title: 工作前的论文以及代码阅读
   * 离散变量采样[[^6]]:有O(1)的欸，直接就是生成一个array，其中数值分布按概率分布来，然后随机选一个就好了。
   * 这里肯定没有看完的，但是我也不知道看到哪里了。。。。
 
-* **Deep Reinforcement Learning: Pong from Pixels**[[^7]]:
+* **Deep Reinforcement Learning: Pong from Pixels**[[^7]]:这个是直接对概率进行更新，使采样的概率更偏向于正向的。但是没有reward估计的部分。   
 
+* [REINFORCE](https://github.com/pytorch/examples/blob/d304b0d4a20d97e3b4529cfd6429102a58e7635a/reinforcement_learning/reinforce.py):第一次看到`itertools.count()`,还挺好玩的，可以用这个写`while True`.
 ## 参考文献
 
 [^1]: [Policy Gradients and Log Derivative Trick](https://medium.com/@aminamollaysa/policy-gradients-and-log-derivative-trick-4aad962e43e0)

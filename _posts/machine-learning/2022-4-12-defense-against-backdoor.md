@@ -135,7 +135,18 @@ Learning: A Comprehensive Review(2020)**: 来一个经典重温，给第二个�
       * NNoculation: Broad spectrum and targeted treatment of backdoored DNNs：正确的决策边界，TODO
       *  
   * 然后是如何宣传后门攻击的作用：
-    1.  
+    1.  pass, 以后再说，现在用不到
+
+论文写作的三段论：
+1. 首先是威胁模型（这个能看的论文应该很多吧，例如NNoculation）：
+	1. 攻击方的能力和目标
+  2. 防御方的能力和目标
+  3. 评估指标
+2. 自己的方法
+3. 实验
+	1. 攻击方的实验设置
+  2. 防御方的实验设置
+
 
 
 今天下午要看的几篇论文：

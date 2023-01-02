@@ -22,6 +22,9 @@ title: 工作前的论文以及代码阅读
   * behavior policy $\beta$ ，item embedding可以训练，但是，user state那里梯度不回传的话，user state一直变化，但是item embedding是不变化的？？？？？
   * gumbel（softmax采样）[[^5]]：复杂度可以降低到O(n).
   * 离散变量采样[[^6]]:有O(1)的欸，直接就是生成一个array，其中数值分布按概率分布来，然后随机选一个就好了。
+  * 这里肯定没有看完的，但是我也不知道看到哪里了。。。。
+
+* **Deep Reinforcement Learning: Pong from Pixels**[[^7]]:
 
 ## 参考文献
 
@@ -31,3 +34,4 @@ title: 工作前的论文以及代码阅读
 [^4]: [Understanding Actor Critic Methods and A2C](https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f)
 [^5]: [Gumbel-max trick](https://timvieira.github.io/blog/post/2014/07/31/gumbel-max-trick/)
 [^6]: [How to sample from a discrete distribution?](https://stats.stackexchange.com/questions/67911/how-to-sample-from-a-discrete-distribution)
+[^7]: [Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)

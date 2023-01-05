@@ -186,3 +186,17 @@ $$
 A S R \triangleq \operatorname{Pr}_{(\boldsymbol{x}, y) \in \mathcal{D}_{\text {test }}}\left\{C_{\boldsymbol{w}}(G(\boldsymbol{x}))=y_t \mid y \neq y_t\right\}
 \end{equation}
 $$
+
+
+
+$$
+\begin{equation}
+PB \triangleq \operatorname{Pr}_{\mathit{g_c} \in \mathcal{D}_{\text {test }}}\left\{f_M(\mathit{g_c}) = f_{M}(G(\mathit{g_c}))\right\}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+PB \triangleq \operatorname{Pr}_{\mathit{g_c} \in \mathcal{D}_{\text {test }}}\left\{f_C(G(\mathit{g_c})) = f_{M}(G(\mathit{g_c}))\right\}
+\end{equation}
+$$

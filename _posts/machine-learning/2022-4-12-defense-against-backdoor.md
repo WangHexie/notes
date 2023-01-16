@@ -200,3 +200,11 @@ Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必�
 * **Graph alternate learning for robust graph neural networks in node classification**：看上去不是很纯粹，我就没看了。怎么一个特征挑选的也写进去了。
 * **Graph Robustness Benchmark: Benchmarking the Adversarial Robustness of Graph Machine Learning**: 实现了GuardGNN，主要还是对抗攻击的内容。
 * **Adversarial Attacks on Neural Networks for Graph Data**：poison attack，gnnguard防御的算法之一。但是这个主要应用于节点分类的场景呢。创建了一个替代模型，对A，X直接进行优化，我说呢，厉害厉害。
+
+
+* **Fine-Pruning: Defending Against Backdooring Attacks on Deep Neural Networks(2018)**:对模型进行剪枝后再进行模型微调。里面提出了一个非常有意思的攻击，就是剪枝后进行后门攻击，然后恢复剪枝减掉的参数。这样做之后，直接剪枝会让模型也无法进行防御需要继续进行微调。这样做的目的主要是让后门激活的也neuron属于相同的。
+  * 里面还提到一个非常有意思的东西，就是攻击者可以让你微调失败的小技巧，就是让参数落在一个能保留backdoor和分类能力的local minium附近。作者也提出了解决方案，直接参数加噪声然后重新训练。当然加噪声的程度还是需要探索的。  
+
+
+* **Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning**: 没看完
+  * 该论文提出了两种注入方式，首先是通过特定位置的随机像素进行攻击，第二种是通过语义文中用词是pattern，就是通过某种物品等，但是无需指定特定位置。非常古早的攻击方式，

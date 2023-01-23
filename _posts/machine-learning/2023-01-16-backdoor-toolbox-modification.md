@@ -8,3 +8,5 @@ title: Backdoor Toolbox 适配图数据注意事项
 3. 修改backdoor形式
 4. 改优化器
 5. 改文件夹保存的文件名格式，":"改成“_”
+6. 处理引用__init__.py
+7. 

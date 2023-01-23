@@ -200,3 +200,13 @@ $$
 PB \triangleq \operatorname{Pr}_{\mathit{g_c} \in \mathcal{D}_{\text {test }}}\left\{f_C(G(\mathit{g_c})) = f_{M}(G(\mathit{g_c}))\right\}
 \end{equation}
 $$
+
+
+### 第二篇论文
+
+* NAD中attention计算的修改
+  ```python
+    # Todo： meaning of norm's dim
+    # image: B*C*H*W -> B*H*W  : B*H*W/H*W
+    # graph: B*N*F -> B*N : B*N / N
+  ```

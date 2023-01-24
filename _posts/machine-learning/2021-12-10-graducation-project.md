@@ -207,6 +207,7 @@ $$
 * NAD中attention计算的修改
   ```python
     # Todo： meaning of norm's dim
-    # image: B*C*H*W -> B*H*W  : B*H*W/H*W
-    # graph: B*N*F -> B*N : B*N / N
+        # image: B*C*H*W -> B*H*W  : B*H*W/H*W
+        # graph: B*N*F -> B*N : B*N / N
+        # graph(True): BxN * F -> BxN * 1 / BxN * 1
   ```

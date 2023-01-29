@@ -219,3 +219,17 @@ Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必�
 
 * **Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning**: 没看完
   * 该论文提出了两种注入方式，首先是通过特定位置的随机像素进行攻击，第二种是通过语义文中用词是pattern，就是通过某种物品等，但是无需指定特定位置。非常古早的攻击方式，
+
+* **BRIDGING MODE CONNECTIVITY IN LOSS LANDSCAPES AND ADVERSARIAL ROBUSTNESS**:
+* **Anti-Backdoor Learning: Training Clean Models on Poisoned Data(NIPS 2021)**: 这篇论文主要是，根据有后门的样本，他的拟合速度更快，然后没有后门的样本，拟合速度更慢。从而根据loss来将有后门的样本分开。他首先是两个过程，第一个过程是尽量的降低loss，但是这个loss他是要保持在一定的限度之内。就是他设定了一个 $\gamma$ 。低于这个值的，他要将这个loss增加，以免他拟合过多就是带有后门的样本。高于$\gamma$继续学习。然后第二个阶段就是将拟合最好的一部分样本，作为后门样本进行unlearning，将这部分样本的loss升高
+  * $$
+    \begin{equation}
+    \mathcal{L}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}_c}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]-\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}_b}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]
+    \end{equation}
+    $$
+    
+  * $$
+    \begin{equation}
+    \mathcal{L}_{\mathrm{ABL}}^t= \begin{cases}\mathcal{L}_{\mathrm{LGA}}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}}\left[\operatorname{sign}\left(\ell\left(f_\theta(\boldsymbol{x}), y\right)-\gamma\right) \cdot \ell\left(f_\theta(\boldsymbol{x}), y\right)\right] & \text { if } 0 \leq t<T_{t e} \\ \mathcal{L}_{\mathrm{GGA}}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \widehat{\mathcal{D}}_c}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]-\mathbb{E}_{(\boldsymbol{x}, y) \sim \widehat{\mathcal{D}}_b}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right] & \text { if } T_{t e} \leq t<T,\end{cases}
+    \end{equation}
+    $$

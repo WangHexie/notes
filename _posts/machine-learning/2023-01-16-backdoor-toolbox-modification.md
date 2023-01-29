@@ -3,7 +3,7 @@ layout: post
 title: Backdoor Toolbox 适配图数据注意事项 
 ---
 
-1. 首先是需要对图数据写一个适配器，返回Data，label形式
+1. 首先是需要对图数据写一个适配器，返回Data，label形式（one-time only）
 2. 然后需要禁用所有的pin_memory至少在我本机上是这样的
 3. 修改backdoor形式
 4. 改优化器

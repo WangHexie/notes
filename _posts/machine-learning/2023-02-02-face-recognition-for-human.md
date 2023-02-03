@@ -4,6 +4,8 @@ title: 人脸识别for human
 ---
 
 ## 标准脸
+标准脸图片
+
 ![标准脸]({{site.baseurl}}/images/face_recognition/face.webp)
 
 注意地方：

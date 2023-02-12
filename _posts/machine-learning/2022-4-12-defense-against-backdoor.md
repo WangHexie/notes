@@ -227,9 +227,12 @@ Robustness of Graph Neural Networks(2022)**:是在spectral做的，有没有必�
     \mathcal{L}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}_c}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]-\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}_b}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]
     \end{equation}
     $$
-    
+
   * $$
     \begin{equation}
     \mathcal{L}_{\mathrm{ABL}}^t= \begin{cases}\mathcal{L}_{\mathrm{LGA}}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}}\left[\operatorname{sign}\left(\ell\left(f_\theta(\boldsymbol{x}), y\right)-\gamma\right) \cdot \ell\left(f_\theta(\boldsymbol{x}), y\right)\right] & \text { if } 0 \leq t<T_{t e} \\ \mathcal{L}_{\mathrm{GGA}}=\mathbb{E}_{(\boldsymbol{x}, y) \sim \widehat{\mathcal{D}}_c}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right]-\mathbb{E}_{(\boldsymbol{x}, y) \sim \widehat{\mathcal{D}}_b}\left[\ell\left(f_\theta(\boldsymbol{x}), y\right)\right] & \text { if } T_{t e} \leq t<T,\end{cases}
     \end{equation}
     $$
+
+
+

@@ -211,3 +211,13 @@ $$
         # graph: B*N*F -> B*N : B*N / N
         # graph(True): BxN * F -> BxN * 1 / BxN * 1
   ```
+
+### TODO:
+* [x] GNNbenchmark 论文阅读
+  * mnist数据集是怎么制作的？:super pixel
+  * GNN是什么结构？（调优模型到sota）: graphsage 非常不错
+* 调优并测试所有的算法
+  * [x] NAD搞好了
+  * [x] finetuning 也搞好了
+  * [x] ABL基本也好了，但是ABL有一个问题就是选的数据不能太多，不然最后一个环节有很多干净样本结果会很难看。
+* 选一个算法作为基础，然后叠加另一个算法:我选好了

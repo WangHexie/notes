@@ -85,3 +85,5 @@ exclude:
   - README.md
   - CNAME
 
+collections:
+  protected:

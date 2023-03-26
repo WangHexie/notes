@@ -125,7 +125,7 @@ $$
 
 $$
 \begin{equation}
-\frac{\partial \varepsilon }{\partial x}= x
+\frac{\partial \varepsilon }{\partial x}= 1
 \end{equation}
 $$
 

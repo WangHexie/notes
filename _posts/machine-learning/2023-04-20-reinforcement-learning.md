@@ -2,7 +2,7 @@
 layout: post
 title: 强化学习
 ---
-⬆[[^1]]
+参考书⬆[[^1]]
 
 1. 和环境的交互是区别于监督学习的一大特征
 2. 如何建模value即长期收益是大多算法的重点
@@ -30,6 +30,18 @@ title: 强化学习
     \end{aligned}
     $$  
 
+6. 多臂老虎机换成多个，并且，action能影响到老虎机的选择上时候，就是正经的及其学习了，就是action能影响state了。
+7. The reward signal is your way of communicating to the agent what you want achieved, not how you want it achieved
+8. return and reward:
+    $$
+    \begin{aligned}
+    G_t & \doteq R_{t+1}+\gamma R_{t+2}+\gamma^2 R_{t+3}+\gamma^3 R_{t+4}+\cdots \\
+    & =R_{t+1}+\gamma\left(R_{t+2}+\gamma R_{t+3}+\gamma^2 R_{t+4}+\cdots\right) \\
+    & =R_{t+1}+\gamma G_{t+1}
+    \end{aligned}
+    $$
+
+### 参考文献：
 
 [^1]: R. S. Sutton and A. G. Barto, Reinforcement learning: an introduction, Second edition. in Adaptive computation and machine learning series. Cambridge, Massachusetts: The MIT Press, 2018.
 

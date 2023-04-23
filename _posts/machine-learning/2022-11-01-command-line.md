@@ -9,4 +9,4 @@ title: command line
   
 ## 参考文献
 
-[^1]: [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
+[^1]: [The Art   of Command Line](https://github.com/jlevy/the-art-of-command-line)

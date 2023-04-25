@@ -30,7 +30,7 @@ title: 强化学习
     \end{aligned}
     $$  
 
-6. 多臂老虎机换成多个，并且，action能影响到老虎机的选择上时候，就是正经的及其学习了，就是action能影响state了。
+6. 多臂老虎机换成多个，并且，action能影响到老虎机的选择上时候，就是正经的强化学习了，就是action能影响state了。
 7. The reward signal is your way of communicating to the agent what you want achieved, not how you want it achieved
 8. return(value) and reward:
     $$

@@ -17,7 +17,7 @@ title: 强化学习
     & =\frac{1}{n}\left(R_n+n Q_n-Q_n\right) \\
     & =Q_n+\frac{1}{n}\left[R_n-Q_n\right],
     \end{aligned}
-    $$ 
+    $$
 
    * 当然如果是这个reward不是固定的话，那么可以给最近的值更高的权重，所以就不用 $\frac{1}{n}$， 而是某一固定的值
 

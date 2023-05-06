@@ -43,7 +43,6 @@ title: 强化学习
 
 9. a policy is a mapping from states to probabilities of selecting each possible action
 
-
 ### 参考文献：
 
 [^1]: R. S. Sutton and A. G. Barto, Reinforcement learning: an introduction, Second edition. in Adaptive computation and machine learning series. Cambridge, Massachusetts: The MIT Press, 2018.

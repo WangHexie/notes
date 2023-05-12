@@ -42,6 +42,9 @@ title: 强化学习
     $$
 
 9. a policy is a mapping from states to probabilities of selecting each possible action
+10. On-policy methods attempt to evaluate or improve the policy that is used to make decisions, whereas off-policy methods evaluate or improve a policy different from that used to generate the data.
+
+page marker: 126
 
 ### 参考文献：
 

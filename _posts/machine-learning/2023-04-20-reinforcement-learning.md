@@ -32,7 +32,7 @@ title: 强化学习
 
 6. 多臂老虎机换成多个，并且，action能影响到老虎机的选择上时候，就是正经的强化学习了，就是action能影响state了。
 7. The reward signal is your way of communicating to the agent what you want achieved, not how you want it achieved
-8. return(value) and reward:
+8. return(value, gain, G,  $v_\pi (S_t)$ ) and reward, and estimated value is $V(S_{t})$ :
     $$
     \begin{aligned}
     G_t & \doteq R_{t+1}+\gamma R_{t+2}+\gamma^2 R_{t+3}+\gamma^3 R_{t+4}+\cdots \\
